@@ -1,0 +1,44 @@
+html, body {
+    height: 100%
+}
+
+/*
+    body background
+*/
+body {
+    background-image: url('/static/images/bookbackground.jpg');
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/*
+    sign in link
+*/
+.login-link {
+    text-decoration: none;
+    color: black;
+}
+
+.login-link:hover {
+    color: grey;
+}
+
+/*
+    footer
+*/
+.footer {
+    bottom: 0;
+    width: 100%;
+    height: 100%
+}
+
+.icon-colour{
+    color: white;
+}
+
+.icon-colour:hover{
+    color: grey;
+}
