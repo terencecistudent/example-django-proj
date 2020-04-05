@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from accounts.forms import LoginForm, RegisterForm
 
 
@@ -42,3 +44,49 @@ def register(request):
         return render(render, "registration.html", {
                       "register_form": register_form}
                       )
+
+
+def login(request):
+    """
+    Log in page for users
+    """
+    if request.user.is_authenticated:
+        return redirect(reverse("index"))
+
+    if request.method == "POST":
+        login_form = LoginForm(request.POST)
+
+        if login_form.is_valid():
+            user = auth.authenticate(username=request.POST["username"],
+                                     password=request.POST["password"])
+
+            if user:
+                auth.login(user=user, request=request)
+                messages.success(request, "You are now signed in!")
+                return redirect(reverse("index"))
+            else:
+                login_form.add_error(None, "Incorrect username or password")
+
+    else:
+        login_form = LoginForm()
+
+    return render(render, "login.html", {"login_form": login_form})
+
+
+@login_required
+def logging_out(request):
+    """
+    Signs a user out when they are logged in
+    """
+    auth.logout(request)
+    messages.success("You are now logged out!")
+    return redirect(reverse("index"))
+
+
+def user_profile(request):
+    """
+    Profile page showing user's details
+    """
+    user = User.objects.get(email=request.user.email,
+                            username=request.user.username)
+    return render(request, "profile.html", {"profile": user})

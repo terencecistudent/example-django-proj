@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row row-flex">
+    <div class="col-12">
+        <!--Looping through all of the books-->
+        {% for book in books %}
+            <!--Display for books and their details-->
+            <div class="card" style="width: 18rem;">
+                <img src="{{ book.image }}" class="card-img-top book-image" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ book.name }}</h5>
+                    <p class="card-text">{{ book.author }}</p>
+                    <p class="card-text">{{ book.price }}</p>
+                    <p class="card-text">{{ book.description }}</p>
+                    <!--Add to Cart submit button-->
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <input type="number" name="quantity" id="quantity" min="1" max="99" placeholder="Quantity" class="form-control">
+                            <button type="submit" class="btn btn-success">Add to Cart</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
