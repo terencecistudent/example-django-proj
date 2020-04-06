@@ -2,29 +2,39 @@
 
 {% block content %}
 
-<div class="row row-flex">
-    <div class="col-12">
-        <!--Looping through all of the books-->
-        {% for book in books %}
-            <!--Display for books and their details-->
-            <div class="card" style="width: 18rem;">
-                <img src="{{ book.image }}" class="card-img-top book-image" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{ book.name }}</h5>
-                    <p class="card-text">{{ book.author }}</p>
-                    <p class="card-text">{{ book.price }}</p>
-                    <p class="card-text">{{ book.description }}</p>
-                    <!--Add to Cart submit button-->
-                    <form action="" method="POST">
-                        {% csrf_token %}
-                        <div class="input-group">
-                            <input type="number" name="quantity" id="quantity" min="1" max="99" placeholder="Quantity" class="form-control">
-                            <button type="submit" class="btn btn-success">Add to Cart</button>
-                        </div>
-                    </form>
+<div class="row text-center py-3">
+    <div class="col">
+        <h2>Buy Books Here</h2>
+    </div>
+</div>
+<div class="container">
+    <div class="row row-flex py-4">
+        <div class="col">
+            <!--Looping through all of the books-->
+            {% for book in books %}
+                <!--Display for books and their details-->
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ book.image }}" class="card-img-top book-image" alt="..." width="150" height="200">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ book.name }}</h5>
+                        <hr>
+                        <p class="card-text">{{ book.author }}</p>
+                        <hr>
+                        <p class="card-text">{{ book.price }}</p>
+                        <hr>
+                        <p class="card-text">{{ book.description }}</p>
+                        <!--Add to Cart submit button-->
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <input type="number" name="quantity" id="quantity" min="1" max="99" placeholder="Quantity" class="form-control">
+                                <button type="submit" class="btn btn-success">Add to Cart</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 </div>
 

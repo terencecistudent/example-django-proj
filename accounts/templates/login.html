@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load bootstrap_tags %}
+
+{% block page_title %} Sign In Page {% endblock %}
+
+{% block page_heading %} User Sign In {% endblock %}
+
+{% block content %}
+
+<!--Form used for user to sign in-->
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ login_form | as_bootstrap }}
+    <button type="submit" class="btn btn-success">Sign In</button>
+</form>
+<!--Link to reset password if user forgets theirs-->
+<p>
+    <a href="{% url 'password_reset' %}">Forget password?</a>
+</p>
+
+{% endblock %}

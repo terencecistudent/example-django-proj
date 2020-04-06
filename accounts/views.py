@@ -79,7 +79,7 @@ def logging_out(request):
     Signs a user out when they are logged in
     """
     auth.logout(request)
-    messages.success("You are now logged out!")
+    messages.success(request, "You are now logged out!")
     return redirect(reverse("index"))
 
 

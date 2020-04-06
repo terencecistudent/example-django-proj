@@ -6,13 +6,16 @@ html, body {
     body background
 */
 body {
-    background-image: url('/static/images/bookbackground.jpg');
+    background-color: moccasin;
+
+    /* background-image: url('/static/images/bookbackground.jpg');
     height: 100%;
+    width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
-}
+    background-attachment: scroll; */
+} 
 
 /*
     sign in link
@@ -32,7 +35,6 @@ body {
 .footer {
     bottom: 0;
     width: 100%;
-    height: 100%
 }
 
 .icon-colour{

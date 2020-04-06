@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block page_title %} {{ user }}'s Profile {% endblock %}
+
+{% block page_heading %} <i class="fas fa-user"></i> {{ user }}'s Profile {% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <h3>User Profile</h3>
+                <span>
+                    <ul>
+                        <li>{{ profile.username }}</li>
+                        <li>{{ profile.email }}</li>
+                    </ul>
+                </span>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <h3>Purchases</h3>
+                <div class="card mb-3" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{{ book.image }}" class="card-img" alt="{{ book.title }}">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ book.title }}</h5>
+                                <p class="card-text">{{ book.author }}</p>
+                                <p class="card-text">{{ book.genre }}</p>
+                                <p class="card-text">{{ book.price }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
