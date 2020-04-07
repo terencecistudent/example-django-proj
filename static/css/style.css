@@ -7,14 +7,6 @@ html, body {
 */
 body {
     background-color: moccasin;
-
-    /* background-image: url('/static/images/bookbackground.jpg');
-    height: 100%;
-    width: 100%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: scroll; */
 } 
 
 /*
@@ -28,6 +20,10 @@ body {
 .login-link:hover {
     color: grey;
 }
+
+/*
+    col width
+*/
 
 /*
     footer

@@ -17,7 +17,7 @@ class RegisterForm(UserCreationForm):
     Form used for new user registration
     """
     # format for password creation
-    password = forms.CharField(
+    password1 = forms.CharField(
         label="Password",
         widget=forms.PasswordInput
     )
@@ -31,7 +31,7 @@ class RegisterForm(UserCreationForm):
         fields = [
             "email",
             "username",
-            "password",
+            "password1",
             "password2",
         ]
 
@@ -44,13 +44,13 @@ class RegisterForm(UserCreationForm):
         return email
 
     def check_password2(self):
-        password = self.cleaned_data.get("password")
+        password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         # if not password or password2 raise error
-        if not password or not password2:
+        if not password1 or not password2:
             raise forms.ValidationError("Please confirm you password.")
 
         # if passwords don't match then raise error
-        if password != password2:
+        if password1 != password2:
             raise forms.ValidationError("Passwords do not match!")
         return password2

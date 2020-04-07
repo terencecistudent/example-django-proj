@@ -11,7 +11,7 @@
 <form action="" method="post">
     {% csrf_token %}
     {{ register_form | as_bootstrap }}
-    <input type="button" value="Submit" class="btn btn-success">
+    <input type="submit" value="Submit" class="btn btn-success">
 </form>
 <!--For users that already have an account-->
 <p>Already have an account?  Sign in <a href="{% url 'login' %}" class="login-link">here!</a></p>

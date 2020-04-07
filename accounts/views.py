@@ -16,7 +16,7 @@ def register(request):
     """
     Renders the registration page
     """
-    if request.user.is_authenticated():
+    if request.user.is_authenticated:
         return redirect(reverse("index"))
 
     if request.method == "POST":
@@ -25,25 +25,26 @@ def register(request):
         if register_form.is_valid():
             register_form.save()
             user = auth.authenticate(username=request.POST["username"],
-                                     password=request.POST["password"])
+                                     password=request.POST["password1"])
 
             if user:
                 auth.login(user=user, request=request)
                 messages.success(
                     request,
-                    "Registration successfully, you are now signed in!"
+                    "Registration successful, you are now signed in!"
                 )
                 return redirect(reverse("index"))
             else:
                 messages.error(
-                    request, "Account registration not availiable this time."
+                    request,
+                    "Account registration not availiable at this time."
                 )
-        else:
-            register_form = RegisterForm()
+    else:
+        register_form = RegisterForm()
 
-        return render(render, "registration.html", {
-                      "register_form": register_form}
-                      )
+    return render(request, "register.html", {
+                    "register_form": register_form}
+                  )
 
 
 def login(request):
@@ -70,7 +71,7 @@ def login(request):
     else:
         login_form = LoginForm()
 
-    return render(render, "login.html", {"login_form": login_form})
+    return render(request, "login.html", {"login_form": login_form})
 
 
 @login_required
@@ -89,4 +90,4 @@ def user_profile(request):
     """
     user = User.objects.get(email=request.user.email,
                             username=request.user.username)
-    return render(request, "profile.html", {"profile": user})
+    return render(request, "user_profile.html", {"profile": user})
