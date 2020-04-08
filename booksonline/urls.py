@@ -18,10 +18,17 @@ from django.contrib import admin
 from books.views import all_of_the_books
 from books import urls as urls_books
 from accounts import urls as urls_accounts
+from cart import urls as urls_cart
+from search import urls as urls_search
+from django.views import static
+from .settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', all_of_the_books, name="index"),
     url(r'^books/', include(urls_books)),
     url(r'^accounts/', include(urls_accounts)),
+    url(r'^cart/', include(urls_cart)),
+    url(r'^search/', include(urls_search)),
+    url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 ]

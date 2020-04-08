@@ -2,6 +2,7 @@
 
 {% block content %}
 
+<!--Containing information about users only accessing auctions if they have an account-->
 <div class="row">
     <div class="col">
         <div class="jumbotron text-center">
@@ -20,6 +21,13 @@
     </div>
 </div>
 <div class="container">
+    <!--Search Input-->
+    <div class="row py-3">
+        <form action="{% url 'search' %}" method="GET">
+            <input type="text" name="q" id="q">
+            <button type="submit" class="btn btn-success">Search Book</button>
+        </form>
+    </div>
     <div class="row py-4">
         <!--Looping through all of the books-->
         {% for book in books %} 
@@ -36,11 +44,13 @@
                     <hr>
                     <p class="card-text">£{{ book.price }}</p>
                     <!--Add to Cart submit button-->
-                    <form action="" method="POST">
+                    <form action="{% url 'add_book_to_cart' book.id %}" method="POST">
                         {% csrf_token %}
                         <div class="input-group">
-                            <input type="number" name="quantity" id="quantity" min="1" max="99" placeholder="Quantity" class="form-control">
-                            <button type="submit" class="btn btn-success">Add to Cart</button>
+                            <input type="number" name="quantity" min="1" max="999" placeholder="Quantity" class="form-control">
+                            <span class="input-group-prepend">
+                                <button type="submit" class="btn btn-success">Add to Cart</button>
+                            </span>
                         </div>
                     </form>
                 </div>

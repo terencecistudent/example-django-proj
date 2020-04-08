@@ -48,7 +48,7 @@
                     </li>
                 {% endif %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{% url 'view_cart' %}">
                         <i class="fas fa-shopping-basket fa-lg"></i>
                         Cart
                     </a>
@@ -56,6 +56,7 @@
             </ul>
         </div>
     </nav>
+    <!--Messages will show if user signs in/out and registers-->
     {% if messages %}
         <div class="alert alert-success" role="alert">
             <div class="messages text-center">
