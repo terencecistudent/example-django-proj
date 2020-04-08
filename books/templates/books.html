@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load static from staticfiles %}
 {% block content %}
 
 <!--Containing information about users only accessing auctions if they have an account-->
@@ -31,31 +31,31 @@
     <div class="row py-4">
         <!--Looping through all of the books-->
         {% for book in books %} 
-        <div class="col-xs-12 col-sm-12 col-md-6 col-offset-md-2 col-lg-4">
-            <!--Display for books and their details-->
-            <div class="card .justify-content-center" style="width: 18rem;">
-                <img src="{{ book.image }}" class="card-img-top book-image" alt="..." width="150" height="200">
-                <div class="card-body">
-                    <h5 class="card-title">{{ book.name }}</h5>
-                    <hr>
-                    <p class="card-text">{{ book.author }}</p>
-                    <hr>
-                    <p class="card-text">{{ book.genre }}</p>
-                    <hr>
-                    <p class="card-text">£{{ book.price }}</p>
-                    <!--Add to Cart submit button-->
-                    <form action="{% url 'add_book_to_cart' book.id %}" method="POST">
-                        {% csrf_token %}
-                        <div class="input-group">
-                            <input type="number" name="quantity" min="1" max="999" placeholder="Quantity" class="form-control">
-                            <span class="input-group-prepend">
-                                <button type="submit" class="btn btn-success">Add to Cart</button>
-                            </span>
-                        </div>
-                    </form>
+            <div class="col-xs-12 col-sm-10 col-md-4 col-lg-3">
+                <!--Display for books and their details-->
+                <div class="card" style="width: 200px;">
+                    <img src="{{ MEDIA_URL }}{{ book.image }}" class="card-img-top book-image" alt="..." width="200" height="250">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ book.name }}</h5>
+                        <hr>
+                        <p class="card-text">{{ book.author }}</p>
+                        <hr>
+                        <p class="card-text">{{ book.genre }}</p>
+                        <hr>
+                        <p class="card-text">£{{ book.price }}</p>
+                        <!--Add to Cart submit button-->
+                        <form action="{% url 'add_book_to_cart' book.id %}" method="POST">
+                            {% csrf_token %}
+                            <div class="input-group">
+                                <input type="number" name="quantity" min="1" max="999" placeholder="Quantity" class="form-control">
+                                <span class="input-group-prepend">
+                                    <button type="submit" class="btn btn-success">Add to Cart</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
         {% endfor %}
     </div>
 </div>

@@ -5,15 +5,15 @@
 {% block content %}
 
 <div class="container">
-    <div class="row row-flex d-flex justify-content-center">
-        {% for item in cart %}
-        <div class="col">
+    <div class="row row-flex d-flex justify-content-center py-3">
+        {% for item in cart_items %}
+        <div class="col-10 offset-2">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
-                        <img src="{{ item.book.image }}" class="card-img" alt="{{ item.book.name }}">
+                        <img src="{{ MEDIA_URL }}{{ item.book.image }}" class="card-img" alt="{{ item.book.name }}">
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         <div class="card-body">
                             <h5 class="card-title">{{ item.book.name }}</h5>
                             <p class="card-text">{{ item.book.author }}</p>
@@ -21,15 +21,22 @@
                             <p class="card-text">{{ item.book.price }}</p>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <div class="col-md-3">
                         <div class="card-body">
                             <form action="{% url 'edit_book_quantity' item.id %}" method="POST">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <div class="input-group-append">Qty</div>
-                                        <input type="number" name="quantity" id="amount-quantity" min="0" max="999" class="form-control">
-                                        <div class="input-group-append">{{ item.quantity }}</div>
+                                        <div class="input-group-append">
+                                            Quantity:
+                                            <span class="pl-1">{{ item.quantity }}</span>
+                                        </div>
+                                        <!-- <div class="input-group-append">{{ item.quantity }}</div> -->
+                                    </div>
+                                    <br>
+                                    <div class="input-group">
+                                        <div class="input-group-append">Edit Quantity:</div>
+                                        <input type="number" name="quantity" id="change-quantity" min="0" max="999" class="form-control">
                                     </div>
                                 </div>
                                 <button type="submit"><i class="fas fa-edit" aria-hidden="true"></i></button>

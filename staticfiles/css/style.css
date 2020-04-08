@@ -1,0 +1,42 @@
+html, body {
+    height: 100%
+}
+
+/*
+    body background
+*/
+body {
+    background-color: moccasin;
+} 
+
+/*
+    sign in link
+*/
+.login-link {
+    text-decoration: none;
+    color: black;
+}
+
+.login-link:hover {
+    color: grey;
+}
+
+/*
+    col width
+*/
+
+/*
+    footer
+*/
+.footer {
+    bottom: 0;
+    width: 100%;
+}
+
+.icon-colour{
+    color: white;
+}
+
+.icon-colour:hover{
+    color: grey;
+}

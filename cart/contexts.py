@@ -7,7 +7,9 @@ def items_in_cart(request):
     Cart items will stay shown when
     viewing different pages
     """
+    print("Getting the cart")
     cart = request.session.get("cart", {})
+    print(cart)
 
     cart_items = []
     total = 0

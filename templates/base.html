@@ -51,6 +51,9 @@
                     <a class="nav-link" href="{% url 'view_cart' %}">
                         <i class="fas fa-shopping-basket fa-lg"></i>
                         Cart
+                        {% if book_count > 0 %}
+                            <label class="badge badge-light">{{ book_count }}</label>
+                        {% endif %}
                     </a>
                 </li>
             </ul>
