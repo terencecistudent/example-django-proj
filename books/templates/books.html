@@ -3,22 +3,18 @@
 {% block content %}
 
 <!--Containing information about users only accessing auctions if they have an account-->
-<div class="row">
-    <div class="col-12">
-        <div class="jumbotron text-center">
-        <h1 class="display-5">Books On Sale</h1>
-        <p class="lead">See a variety of books for sale.</p>
-        {% if user.is_authenticated %}
-            <p class="lead">
-                <strong>You are now signed in and able to view the auctions on the <em>Auctions</em> page.</strong>
-            </p>
-        {% else %}
-            <p class="lead"><strong>To view the auctions, you will need to create an account or sign in.</strong></p>
-            <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Register</a>
-            <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Sign In</a>
-        {% endif %}
-        </div>
-    </div>
+<div class="jumbotron text-center">
+    <h1 class="display-5">Books On Sale</h1>
+    <p class="lead">See a variety of books for sale.</p>
+    {% if user.is_authenticated %}
+        <p class="lead">
+            <strong>You are now signed in and able to view the auctions on the <em>Auctions</em> page.</strong>
+        </p>
+    {% else %}
+        <p class="lead"><strong>To view the auctions, you will need to create an account or sign in.</strong></p>
+        <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Register</a>
+        <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Sign In</a>
+    {% endif %}
 </div>
 <div class="container">
     <!--Search Input-->
@@ -45,9 +41,11 @@
                 <div class="card" style="width: 12.5rem; border: 2px dotted #464c4e4f;">
                     <img src="{{ MEDIA_URL }}{{ book.image }}" class="card-img-top book-image" alt="..." width="200" height="250">
                     <div class="card-body">
-                        <h5 class="card-title">{{ book.name }}</h5>
-                        <p class="card-text">{{ book.author }}</p>
-                        <p class="card-text">{{ book.genre }}</p>
+                        <div style="height: 70px;">
+                            <h6 class="card-title">{{ book.name }}</h6>
+                        </div>
+                        <!-- <p class="card-text"><small>{{ book.author }}</small></p>
+                        <p class="card-text"><small>{{ book.genre }}</small></p> -->
                         <h5 class="card-text">€{{ book.price }}</h5>
                         <!--Add to Cart submit button-->
                         <form action="{% url 'add_book_to_cart' book.id %}" method="POST" class="py-2">
