@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static from staticfiles %}
+
+{% block page_title %} Book Information {% endblock %}
+
+{% block content %}
+
+<div class="row text-center">
+    <div class="col-12">
+        <div class="row">
+        {% for info in book_info %}
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
+                <img id="selected-book-image" src="{{ info.book.image }}" alt="{{ info.book.image }}">
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-7">
+                <h5>{{ info.book.name }}</h5>
+                <p>{{ info.book.author }}</p>
+                <p>{{ info.book.genre }}</p>
+                <p>{{ info.book.published_date }}</p>
+                <p>{{ info.book.description }}</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 col-xl-2">
+                <h5>{{ info.book.price }}</h5>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

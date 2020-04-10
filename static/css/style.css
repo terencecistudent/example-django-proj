@@ -22,8 +22,11 @@ body {
 }
 
 /*
-    col width
+    jumbotron
 */
+.jumbotron {
+    background-color: #fff20057;
+}
 
 /*
     footer

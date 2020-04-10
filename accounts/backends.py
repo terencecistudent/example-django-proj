@@ -1,8 +1,9 @@
 from django.contrib.auth.models import User
+from django.db.models import Q
 
 
 class EmailAuthentication:
-    def authenticate_email(self, username=None, password=None):
+    def authenticate(self, username=None, password=None):
         try:
             user = User.objects.get(email=username)
 
@@ -13,13 +14,13 @@ class EmailAuthentication:
         except User.DoesNotExist:
             return None
 
-        def get_user(self, user_id):
-            try:
-                user = User.objects.get(pk=user_id)
+    def get_user(self, user_id):
+        try:
+            user = User.objects.get(pk=user_id)
 
-                if user.is_active():
-                    return user
+            if user.is_active:
+                return user
 
-                return None
-            except User.DoesNotExist:
-                return None
+            return None
+        except User.DoesNotExist:
+            return None
