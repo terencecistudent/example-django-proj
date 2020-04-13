@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Book, Genre
+from .models import Book
 
 
 def all_of_the_books(request):

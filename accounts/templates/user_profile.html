@@ -8,18 +8,29 @@
 
 <div class="row">
     <div class="col-12">
-        <div class="row">
+        <div class="row text-center">
             <div class="col-sm-12 col-md-6 col-lg-6">
-                <h3>User Profile</h3>
+                <h3 class="py-3">
+                    User Profile
+                    <span>
+                        <i class="fas fa-user"></i>
+                    </span>
+                </h3>
                 <span>
-                    <ul>
-                        <li>{{ profile.username }}</li>
-                        <li>{{ profile.email }}</li>
-                    </ul>
+                    <h6 class="py-2"><strong>Username:</strong></h6>
+                    {{ profile.username }}
+                    <br>
+                    <h6 class="py-2"><strong>Email Address:</strong></h6>
+                    {{ profile.email }}
                 </span>
             </div>
             <div class="col-sm-12 col-md-6 col-lg-6">
-                <h3>Purchases</h3>
+                <h3 class="py-3">
+                    Purchases
+                    <span>
+                        <i class="fas fa-credit-card"></i>
+                    </span>
+                </h3>
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row no-gutters">
                         <div class="col-md-4">

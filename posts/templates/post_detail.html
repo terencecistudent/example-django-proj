@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% load static from staticfiles %}
+
+{% block content %}
+
+<div class="container">
+    <!--Post content-->
+    <div class="row">
+        <div class="col-12">
+            <h3>{{ post.title }}</h3>
+            <p>{{ post.content }}</p>
+            {% if post.user == user %}
+                <a href="{% url 'edit_post' post.id %}">
+                    <i class="fas fa-edit"></i>
+                </a>
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>by {{ post.user }}</p>
+                <p>
+                    <small>{{ post.date_published }}</small>
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <!--Comments belonging to the post-->
+    {% for comment in post.comment.all %}
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-3">
+                        <p>by {{ comment.user }}</p>
+                        <p>
+                            <small>{{ comment.comment_created_date }}</small>
+                        </p>
+                    </div>
+                    <div class="col-9">
+                        <p>{{ comment.content }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    <!--Comment section, submit comment button and link button back to all posts-->
+    <div class="row">
+        <div class="col-12">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <textarea name="comment-content" id="comments" cols="30" rows="8" placeholder="Write a comment..."></textarea>
+                <br>
+                <button type="submit" class="btn btn-success">Submit Comment</button>
+                <a href="{% url 'all_posts' %}" class="btn btn-info">Back to forum</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

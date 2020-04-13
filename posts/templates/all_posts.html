@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load static from staticfiles %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row text-center p-4">
+        <div class="col-12">
+            <div class="row">
+                <!--Search box for forum post-->
+                <div class="col-6">
+                    <form action="{% url 'search' %}" method="GET">
+                        <input type="text" name="comment-search" id="comment-search" placeholder="Search for a forum">
+                        <button type="submit" class="btn-success"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+                <!--New forum post button-->
+                <div class="col-6">
+                    <a href="{% url 'new_post' %}" type="button" class="btn btn-outline-primary">New Post</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Forum posts presented-->
+    {% if posts %}
+        {% for post in posts %}
+            <div class="row">
+                <div class="col-10">
+                    <a href="{% url 'post_detail' %}">
+                        <i class="fas fa-comments"></i>
+                        {{ post.title }}
+                    </a>
+                    <br>
+                    <a href="{% url 'post_detail' %}">
+                        <p>{{ post.content }}</p>
+                    </a>
+                </div>
+                <div class="col-2">
+                    <p>
+                        <small>Posted by {{ post.user }} on {{ post.date_published }}.</small>
+                    </p>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h5 class="text-center py-4">
+            Sorry that are no posts relating to your search!
+            <span class="ml-1">
+                <i class="fas fa-thumbs-down"></i>
+            </span>
+        </h5>
+    {% endif %}
+</div>
+
+{% endblock %}
