@@ -26,22 +26,28 @@
     {% if posts %}
         {% for post in posts %}
             <div class="row">
-                <div class="col-10">
-                    <a href="{% url 'post_detail' %}">
+                <div class="col-8">
+                    <a href="{% url 'post_detail' post.id %}" class="pb-1">
                         <i class="fas fa-comments"></i>
                         {{ post.title }}
                     </a>
                     <br>
-                    <a href="{% url 'post_detail' %}">
-                        <p>{{ post.content }}</p>
-                    </a>
+                    <p>{{ post.content }}</p>
                 </div>
-                <div class="col-2">
+                <div class="col-4">
                     <p>
-                        <small>Posted by {{ post.user }} on {{ post.date_published }}.</small>
+                        <strong>Views:</strong>
+                        {{ post.number_of_views }}</p>
+                    <p>
+                        <strong>Tag:</strong>
+                        {{ post.tag }}
+                    </p>
+                    <p>
+                        <small>Posted by {{ post.user }} on {{ post.date_published }}</small>
                     </p>
                 </div>
             </div>
+            <hr>
         {% endfor %}
     {% else %}
         <h5 class="text-center py-4">

@@ -18,27 +18,26 @@
         </div>
         <div class="row">
             <div class="col">
-                <p>by {{ post.user }}</p>
                 <p>
-                    <small>{{ post.date_published }}</small>
+                    <small>Posted by {{ post.user }} on {{ post.date_published }}</small>
                 </p>
             </div>
         </div>
     </div>
     <br>
     <!--Comments belonging to the post-->
-    {% for comment in post.comment.all %}
+    {% for comment in post.comments.all %}
         <div class="row">
             <div class="col-12">
+                <p>
+                    <small><strong>Comments:</strong></small>
+                </p>
                 <div class="row">
-                    <div class="col-3">
-                        <p>by {{ comment.user }}</p>
-                        <p>
-                            <small>{{ comment.comment_created_date }}</small>
-                        </p>
-                    </div>
-                    <div class="col-9">
+                    <div class="col">
                         <p>{{ comment.content }}</p>
+                        <p>
+                            <small>Posted by {{ comment.user }} on {{ comment.comment_created_date }}</small>
+                        </p>
                     </div>
                 </div>
             </div>
