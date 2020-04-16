@@ -4,50 +4,23 @@
 
 {% block content %}
 
-<!--Containing information about users only accessing auctions if they have an account-->
-<div class="jumbotron text-center">
-    <h1 class="display-5">Books On Sale</h1>
-    <p class="lead">See a variety of books for sale.</p>
-    {% if user.is_authenticated %}
-        <p class="lead">
-            <strong>You are now signed in and able to view the auctions on the <em>Forum</em> page.</strong>
-        </p>
-    {% else %}
-        <p class="lead"><strong>To view the Forum page, you will need to create an account or sign in.</strong></p>
-        <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Register</a>
-        <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Sign In</a>
-    {% endif %}
-</div>
 <div class="container">
     <!--Search Input-->
-    <div class="row py-3 text-center">
+    <div class="row py-3 mt-2 text-center">
         <div class="col-12">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 py-1">
-                    <form action="" method="GET">
-                        <label for="">Genre</label>
-                        <select name="dropdown1" id="dropdown1">
-                            {% for genre in genres %}
-                                <option value="{{ genre.genre_name }}">{{ genre.genre_name }}</option>
-                            {% endfor %}
-                        </select>
-                    </form>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 py-1">
-                    <form action="{% url 'search' %}" method="GET">
-                        <input type="text" name="q" id="q" placeholder="Search for a book">
-                        <button type="submit" class="btn-success"><i class="fas fa-search"></i></button>
-                    </form>
-                </div>
-            </div>
+            <form action="{% url 'search' %}" method="GET">
+                <!-- <input type="text" name="q" id="q" placeholder="Search for a book"> -->
+                <input type="text" name="q" id="q" placeholder="Search for a book">
+                <button type="submit" class="btn-success"><i class="fas fa-search"></i></button>
+            </form>
         </div>
     </div>
     <div class="row py-4 text-center">
         <!--Looping through all of the books-->
         {% for book in books %} 
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 my-4" style="text-align: -webkit-center;">
+            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 my-4 center-align-book-sm">
                 <!--Display for books and their details-->
-                <div class="card shadow-lg bg-white rounded" style="width: 12.5rem; border: 2px dotted #464c4e4f;">
+                <div class="card login-register-form-style" style="width: 12.5rem;">
                     <a href="{% url 'book_info' book_id=book.id %}">
                         <img src="{{ MEDIA_URL }}{{ book.image }}" class="card-img-top book-image" alt="{{ book.name }}" width="200" height="250">
                     </a>

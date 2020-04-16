@@ -54,19 +54,3 @@ def create_post(request, pk=None):
     else:
         form = ForumPostForm(instance=post)
     return render(request, "post_form.html", {"form": form})
-
-
-# def add_comment(request, pk=None):
-#     comment = get_object_or_404(Comment, pk=pk) if pk else None
-#     if request.method == "POST":
-#         form = ForumCommentForm(request.POST,
-#                                 instance=comment)
-#         if form.is_valid():
-#             comment = form.save(commit=False)
-#             comment.user_id = request.user.id
-#             comment.save()
-#             messages.success(request, "Your comment has been added!")
-#             return redirect("post_detail", comment.pk)
-#     else:
-#         form = ForumCommentForm(instance=comment)
-#     return render(request, "post_detail.html", {"form": form})

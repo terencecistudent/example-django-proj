@@ -5,17 +5,13 @@
 {% block content %}
 
 <!--Page title for user navigation-->
-<div class="row text-center py-3">
-    <div class="col">
-        <h2>Cart</h2>
-    </div>
-</div>
+<h2 class="text-center py-3">Cart</h2>
 <!--Section containing item(s) in the cart-->
 <div class="container">
-    <div class="row row-flex d-flex justify-content-center py-3">
+    <div class="row row-flex d-flex center-align-book-sm  py-3">
         {% for item in cart_items %}
-        <div class="col-10 offset-2">
-            <div class="card mb-3" style="max-width: 540px;">
+        <div class="col-12">
+            <div class="card mb-3 card-book-box-shadow" style="max-width: 540px;">
                 <div class="row no-gutters">
                     <!--Containing image of item in cart-->
                     <div class="col-md-4">
@@ -38,8 +34,10 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-append">
-                                            Quantity:
-                                            <span class="pl-1">{{ item.quantity }}</span>
+                                            <h6>Quantity:</h6>
+                                            <span class="pl-1">
+                                                <h6>{{ item.quantity }}</h6>
+                                            </span>
                                         </div>
                                     </div>
                                     <br>
@@ -63,23 +61,18 @@
     </div>
 </div>
 <!--Total price for all orders in the cart-->
-<div class="row text-center py-2">
-    <div class="col-12">
-        <h4>
-            Total:
-            <h5>€{{ total }}</h5>
-        </h4>
-    </div>
-</div>
-<div class="row text-center py-3">
-    <div class="col-12">
-        <a href="{% url 'checkout' %}" class="btn btn-success" role="button">
-            Checkout
-            <span>
-                <i class="far fa-check-circle"></i>
-            </span>
-        </a>
-    </div>
+<h4 class="text-center">
+    Total:
+    <h5 class="text-center">€{{ total }}</h5>
+</h4>
+<!--Checkout button-->
+<div class="text-center my-4">
+    <a href="{% url 'checkout' %}" class="btn btn-success" role="button">
+        Checkout
+        <span>
+            <i class="far fa-check-circle"></i>
+        </span>
+    </a>
 </div>
 
 {% endblock %}

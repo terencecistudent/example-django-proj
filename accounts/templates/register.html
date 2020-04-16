@@ -8,12 +8,16 @@
 
 {% block content %}
 
-<form action="" method="post">
+<form action="" method="POST" class="login-register-form-style py-1 my-3">
+    <h3 class="text-center py-1">
+        Register
+        <i class="fas fa-user pl-1"></i>
+    </h3>
     {% csrf_token %}
     {{ register_form | as_bootstrap }}
     <input type="submit" value="Submit" class="btn btn-success">
 </form>
 <!--For users that already have an account-->
-<p>Already have an account?  Sign in <a href="{% url 'login' %}" class="login-link">here!</a></p>
+<p class="text-center py-2">Already have an account?  Sign in <a href="{% url 'login' %}" class="login-link">here!</a></p>
 
 {% endblock %}

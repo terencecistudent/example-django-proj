@@ -15,7 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from books.views import all_of_the_books
+from home import urls as urls_home
+# from books.views import all_of_the_books
 from books import urls as urls_books
 from accounts import urls as urls_accounts
 from cart import urls as urls_cart
@@ -27,7 +28,8 @@ from .settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', all_of_the_books, name="index"),
+    # url(r'^$', all_of_the_books, name="index"),
+    url(r'^$', include(urls_home)),
     url(r'^books/', include(urls_books)),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^cart/', include(urls_cart)),

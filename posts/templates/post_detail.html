@@ -46,9 +46,9 @@
     <!--Comment section, submit comment button and link button back to all posts-->
     <div class="row">
         <div class="col-12">
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                <textarea name="comment-content" id="comments" cols="30" rows="8" placeholder="Write a comment..."></textarea>
+                <textarea name="comment-content" id="comments" cols="30" rows="5" placeholder="Write a comment..."></textarea>
                 <br>
                 <button type="submit" class="btn btn-success">Submit Comment</button>
                 <a href="{% url 'all_posts' %}" class="btn btn-info">Back to forum</a>

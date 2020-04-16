@@ -33,5 +33,5 @@ class Comment(models.Model):
     comment_created_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return "{0}-{1}-{2}".format(self.post.title, str(self.user.username),
+        return "{}-{}-{}".format(self.post.title, str(self.user.username),
                                     str(self.content))

@@ -1,4 +1,45 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<div class="homepage-book-image">
+    <!--Displaying information about the Forum page-->
+    <div class="text-center text-white my-3">
+        <h1 class="display-5">Books On Sale</h1>
+        <p class="lead">See a variety of books for sale.</p>
+        {% if user.is_authenticated %}
+            <p class="lead">
+                <strong>You are now signed in and able to view the <em>Forum</em> page.</strong>
+            </p>
+        {% else %}
+            <p class="lead"><strong>To view the Forum page, you will need to create an account or sign in.</strong></p>
+            <a class="btn btn-primary btn-lg" href="{% url 'register' %}" role="button">Register</a>
+            <a class="btn btn-primary btn-lg" href="{% url 'login' %}" role="button">Sign In</a>
+        {% endif %}
+    </div>
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="row text-center">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="card border-dark mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Header</div>
+                        <div class="card-body text-dark">
+                            <h5 class="card-title">Dark card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                    <div class="card border-dark mb-3" style="max-width: 18rem;">
+                        <div class="card-header">Header</div>
+                        <div class="card-body text-dark">
+                            <h5 class="card-title">Dark card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
