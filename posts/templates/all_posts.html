@@ -5,58 +5,40 @@
 {% block content %}
 
 <div class="container">
-    <div class="row text-center p-4">
+    <h3 class="text-center mt-3">Forum</h3>
+    <p class="text-center">Here you can discuss books!</p>
+    <!--New post button for users to create a new post-->
+    <div class="row text-center py-4">
         <div class="col-12">
-            <div class="row">
-                <!--Search box for forum post-->
-                <div class="col-6">
-                    <form action="{% url 'search' %}" method="GET">
-                        <input type="text" name="comment-search" id="comment-search" placeholder="Search for a forum">
-                        <button type="submit" class="btn-success"><i class="fas fa-search"></i></button>
-                    </form>
-                </div>
-                <!--New forum post button-->
-                <div class="col-6">
-                    <a href="{% url 'new_post' %}" type="button" class="btn btn-outline-primary">New Post</a>
-                </div>
-            </div>
+            <a href="{% url 'new_post' %}" type="button" class="btn btn-outline-primary">New Post</a>
         </div>
     </div>
     <!--Forum posts presented-->
-    {% if posts %}
-        {% for post in posts %}
-            <div class="row">
-                <div class="col-8">
-                    <a href="{% url 'post_detail' post.id %}" class="pb-1">
-                        <i class="fas fa-comments"></i>
-                        {{ post.title }}
-                    </a>
-                    <br>
-                    <p>{{ post.content }}</p>
-                </div>
-                <div class="col-4">
-                    <p>
-                        <strong>Views:</strong>
-                        {{ post.number_of_views }}</p>
-                    <p>
-                        <strong>Tag:</strong>
-                        {{ post.tag }}
-                    </p>
-                    <p>
-                        <small>Posted by {{ post.user }} on {{ post.date_published }}</small>
-                    </p>
-                </div>
+    {% for post in posts %}
+        <div class="row my-3">
+            <div class="col-8">
+                <a href="{% url 'post_detail' post.id %}" class="pb-1">
+                    <i class="fas fa-comments"></i>
+                    {{ post.title }}
+                </a>
+                <br>
+                <p>{{ post.content }}</p>
             </div>
-            <hr>
-        {% endfor %}
-    {% else %}
-        <h5 class="text-center py-4">
-            Sorry that are no posts relating to your search!
-            <span class="ml-1">
-                <i class="fas fa-thumbs-down"></i>
-            </span>
-        </h5>
-    {% endif %}
+            <div class="col-4">
+                <p>
+                    <strong>Views:</strong>
+                    {{ post.number_of_views }}</p>
+                <p>
+                    <strong>Tag:</strong>
+                    {{ post.tag }}
+                </p>
+                <p>
+                    <small>Posted by {{ post.user }} on {{ post.date_published }}</small>
+                </p>
+            </div>
+        </div>
+        <hr>
+    {% endfor %}
 </div>
 
 {% endblock %}

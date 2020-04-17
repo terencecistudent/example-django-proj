@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from django.contrib import messages
-from .models import Post, Comment
+from .models import Post
 from .forms import ForumPostForm, ForumCommentForm
 
 
@@ -32,7 +32,7 @@ def post_detail(request, pk):
         comment.save()
         messages.success(request,
                          "Comment has been posted successfully posted!")
-        # return redirect("post_detail", pk=post.id)
+        return redirect("post_detail", pk=post.id)
     return render(request, "post_detail.html", {"post": post}, ctx)
 
 

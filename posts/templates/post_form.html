@@ -9,7 +9,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <form method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data" class="login-register-form-style py-1 my-5">
                 {% csrf_token %}
                 {{ form | as_bootstrap }}
                 <div class="row text-center py-4">
