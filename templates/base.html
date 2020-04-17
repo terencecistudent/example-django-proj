@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Book Auctions</title>
+    <title>Ted's Books Online</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -98,10 +98,8 @@
                             </a>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6 py-2">
-                            <form action="{% url 'newsletter' %}" method="POST">
+                            <form action="" method="POST">
                                 <div class="newsletter-email">
-                                    {% csrf_token %}
-                                    {{ subscribe | as_bootstrap }}
                                 </div>
                                 <button type="submit" class="btn btn-info">Subscribe</button>
                             </form>

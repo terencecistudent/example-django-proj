@@ -9,5 +9,5 @@ $( document ).ready(function() {
         if ($(".alert").is(":visible")) {
             $(".alert").fadeOut("fast");
         }
-    }, 5000)
+    }, 3000)
 });

@@ -3,6 +3,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from accounts.forms import LoginForm, RegisterForm
+from checkout.models import OrderLineItem
 
 
 def index(request):
@@ -87,7 +88,10 @@ def logging_out(request):
 def user_profile(request):
     """
     Profile page showing user's details
+    and orders
     """
     user = User.objects.get(email=request.user.email,
                             username=request.user.username)
+    # orders = OrderLineItem.objects.filter(user=request.user).order_by("-date")
     return render(request, "user_profile.html", {"profile": user})
+                #   {"orders": orders})
