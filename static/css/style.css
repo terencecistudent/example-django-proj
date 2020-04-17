@@ -1,12 +1,13 @@
 html, body {
-    height: 100%
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 
 /*
     body background
 */
 body {
-    background-color:#fff5ee;
+    background-color: #dee2e6d1;
 }
 
 /*
@@ -18,6 +19,7 @@ body {
     background-position: center;
     background-size: cover;
     width: 100%;
+    min-height: -webkit-fill-available;
     height: 100vh;
 }
 
@@ -45,10 +47,18 @@ body {
 }
 
 /*
-    hr style
+    hr style checkout page
 */
-.hr-line {
+.hr-line-checkout {
     border: 1px solid lightgray;
+    width: 70%;
+}
+
+/*
+    hr style home page
+*/
+.hr-line-checkout {
+    border: 0.5px solid rgb(216, 216, 216);
     width: 70%;
 }
 
@@ -71,16 +81,9 @@ body {
 }
 
 /*
-    jumbotron
-*/
-.jumbotron {
-    background-color: #fff20057;
-}
-
-/*
     search box on books page
 */
-input[type=text] {
+#search-box[type=text] {
   width: 200px;
   box-sizing: border-box;
   border: 2px solid rgb(105, 95, 95);
@@ -95,7 +98,7 @@ input[type=text] {
   transition: width 0.4s ease-in-out;
 }
 
-input[type=text]:focus {
+#search-box[type=text]:focus {
   width: 80%;
 }
 
@@ -104,6 +107,13 @@ input[type=text]:focus {
 */
 .center-align-book-sm {
     text-align: -webkit-center;
+}
+
+/*
+    book name div heightness
+*/
+.book-name-height {
+    height: 70px;
 }
 
 /*

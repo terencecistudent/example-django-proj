@@ -5,13 +5,14 @@
 {% block content %}
 
 <div class="container">
+    <h2 class="text-center my-4">Books</h2>
     <!--Search Input-->
     <div class="row py-3 mt-2 text-center">
         <div class="col-12">
             <form action="{% url 'search' %}" method="GET">
                 <!-- <input type="text" name="q" id="q" placeholder="Search for a book"> -->
-                <input type="text" name="q" id="q" placeholder="Search for a book">
-                <button type="submit" class="btn-success"><i class="fas fa-search"></i></button>
+                <input type="text" name="q" id="search-box" placeholder="Search for a book">
+                <button type="submit" class="btn btn-outline-success btn-lg"><i class="fas fa-search"></i></button>
             </form>
         </div>
     </div>
@@ -26,7 +27,7 @@
                     </a>
                     <div class="card-body">
                         <a href="{% url 'book_info' book_id=book.id %}">
-                            <div style="height: 70px;">
+                            <div class="book-name-height">
                                 <h6 class="card-title">{{ book.name }}</h6>
                             </div>
                         </a>

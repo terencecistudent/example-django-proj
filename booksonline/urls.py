@@ -16,25 +16,25 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from home import urls as urls_home
-# from books.views import all_of_the_books
 from books import urls as urls_books
 from accounts import urls as urls_accounts
 from cart import urls as urls_cart
 from search import urls as urls_search
 from checkout import urls as urls_checkout
-from posts import urls as url_posts
+from posts import urls as urls_posts
+from newsletter import urls as urls_newsletter
 from django.views import static
 from .settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    # url(r'^$', all_of_the_books, name="index"),
     url(r'^$', include(urls_home)),
     url(r'^books/', include(urls_books)),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^cart/', include(urls_cart)),
     url(r'^search/', include(urls_search)),
     url(r'^checkout/', include(urls_checkout)),
-    url(r'^posts/', include(url_posts)),
+    url(r'^posts/', include(urls_posts)),
+    url(r'^newsletter/', include(urls_newsletter)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 ]

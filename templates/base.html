@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load bootstrap_tags %}
 <!DOCTYPE html>
 <html lang="en" class="h-100">
 <head>
@@ -6,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Book Auctions</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -14,7 +16,8 @@
 <body class="d-flex flex-column h-100 no-gutters">
     <!--Header-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand text-center" href="{% url 'index' %}">Book Auctions
+        <a class="navbar-brand text-center" href="{% url 'index' %}">
+            Ted's Books Online
             <span>
                 <i class="fas fa-book"></i>
             </span>
@@ -28,7 +31,7 @@
                     <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'books' %}">Books <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="{% url 'books' %}">Books</a>
                 </li>
                 {% if user.is_authenticated %}
                     <!--If user signed in, show Forum, Profile and Logout links-->
@@ -65,7 +68,7 @@
     </nav>
     <!--Messages will show if user signs in/out and/or registers-->
     {% if messages %}
-        <div class="alert alert-success" role="alert">
+        <div class="alert alert-success mb-0" role="alert" id="messages-alert">
             <div class="messages text-center">
                 {% for message in messages %}
                     {{ message }}
@@ -95,9 +98,18 @@
                             </a>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6 py-2">
-                            <h6>Subscribe:</h6>
+                            <form action="{% url 'newsletter' %}" method="POST">
+                                <div class="newsletter-email">
+                                    {% csrf_token %}
+                                    {{ subscribe | as_bootstrap }}
+                                </div>
+                                <button type="submit" class="btn btn-info">Subscribe</button>
+                            </form>
+
+
+                            <!-- <h6>Subscribe:</h6>
                             <input type="email" name="subscribe" id="subscribe">
-                            <button type="submit" class="btn btn-info">Subscribe</button>
+                            <button type="submit" class="btn btn-info">Subscribe</button> -->
                         </div>
                     </div>
                 </div>

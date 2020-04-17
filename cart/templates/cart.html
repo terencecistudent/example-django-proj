@@ -7,72 +7,78 @@
 <!--Page title for user navigation-->
 <h2 class="text-center py-3">Cart</h2>
 <!--Section containing item(s) in the cart-->
-<div class="container">
-    <div class="row row-flex d-flex center-align-book-sm  py-3">
-        {% for item in cart_items %}
-        <div class="col-12">
-            <div class="card mb-3 card-book-box-shadow" style="max-width: 540px;">
-                <div class="row no-gutters">
-                    <!--Containing image of item in cart-->
-                    <div class="col-md-4">
-                        <img src="{{ MEDIA_URL }}{{ item.book.image }}" class="card-img" alt="{{ item.book.name }}">
-                    </div>
-                    <!--Containing information of item in cart-->
-                    <div class="col-md-5">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ item.book.name }}</h5>
-                            <p class="card-text">{{ item.book.author }}</p>
-                            <p class="card-text">{{ item.book.genre }}</p>
-                            <h5 class="card-text">€{{ item.book.price }}</h5>
+{% if total == 0 %}
+    <div class="text-center embed-responsive embed-responsive-21by9 py-3 mb-4">
+        <iframe src="https://giphy.com/embed/idwUtDdOYJ9i41vFEz" max-width="480" max-height="270" class="embed-responsive-item"></iframe>
+    </div>
+{% else %}
+    <div class="container">
+        <div class="row row-flex d-flex center-align-book-sm  py-3">
+            {% for item in cart_items %}
+            <div class="col-12">
+                <div class="card mb-3 card-book-box-shadow" style="max-width: 540px;">
+                    <div class="row no-gutters">
+                        <!--Containing image of item in cart-->
+                        <div class="col-md-4">
+                            <img src="{{ MEDIA_URL }}{{ item.book.image }}" class="card-img" alt="{{ item.book.name }}">
                         </div>
-                    </div>
-                    <!--Containing quantity of item in cart-->
-                    <div class="col-md-3">
-                        <div class="card-body">
-                            <form action="{% url 'edit_book_quantity' item.id %}" method="POST">
-                                {% csrf_token %}
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <div class="input-group-append">
-                                            <h6>Quantity:</h6>
-                                            <span class="pl-1">
-                                                <h6>{{ item.quantity }}</h6>
-                                            </span>
+                        <!--Containing information of item in cart-->
+                        <div class="col-md-5">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ item.book.name }}</h5>
+                                <p class="card-text">{{ item.book.author }}</p>
+                                <p class="card-text">{{ item.book.genre }}</p>
+                                <h5 class="card-text">€{{ item.book.price }}</h5>
+                            </div>
+                        </div>
+                        <!--Containing quantity of item in cart-->
+                        <div class="col-md-3">
+                            <div class="card-body">
+                                <form action="{% url 'edit_book_quantity' item.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-append">
+                                                <h6>Quantity:</h6>
+                                                <span class="pl-1">
+                                                    <h6>{{ item.quantity }}</h6>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="input-group">
+                                            <div class="input-group-append">Edit Quantity:</div>
+                                            <input type="number" name="quantity" id="change-quantity" min="0" max="999" class="form-control">
                                         </div>
                                     </div>
-                                    <br>
-                                    <div class="input-group">
-                                        <div class="input-group-append">Edit Quantity:</div>
-                                        <input type="number" name="quantity" id="change-quantity" min="0" max="999" class="form-control">
+                                    <div class="text-center">
+                                        <button type="submit" class="btn-info">
+                                            <i class="fas fa-edit" aria-hidden="true"></i>
+                                        </button>
                                     </div>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn-info">
-                                        <i class="fas fa-edit" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </form>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
-</div>
-<!--Total price for all orders in the cart-->
-<h4 class="text-center">
-    Total:
-    <h5 class="text-center">€{{ total }}</h5>
-</h4>
-<!--Checkout button-->
-<div class="text-center my-4">
-    <a href="{% url 'checkout' %}" class="btn btn-success" role="button">
-        Checkout
-        <span>
-            <i class="far fa-check-circle"></i>
-        </span>
-    </a>
-</div>
+    <!--Total price for all orders in the cart-->
+    <h4 class="text-center">
+        Total:
+        <h5 class="text-center">€{{ total }}</h5>
+    </h4>
+    <!--Checkout button-->
+    <div class="text-center my-4">
+        <a href="{% url 'checkout' %}" class="btn btn-success" role="button">
+            Checkout
+            <span>
+                <i class="far fa-check-circle"></i>
+            </span>
+        </a>
+    </div>
+{% endif %}
 
 {% endblock %}
