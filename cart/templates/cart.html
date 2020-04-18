@@ -5,15 +5,20 @@
 {% block content %}
 
 <!--Page title for user navigation-->
-<h2 class="text-center py-3">Cart</h2>
+<h2 class="text-center my-3">Cart</h2>
 <!--Section containing item(s) in the cart-->
+<!--If cart is empty-->
 {% if total == 0 %}
-    <div class="text-center embed-responsive embed-responsive-21by9 py-3 mb-4">
+    <div class="text-center embed-responsive embed-responsive-21by9 py-3 my-4">
         <iframe src="https://giphy.com/embed/idwUtDdOYJ9i41vFEz" max-width="480" max-height="270" class="embed-responsive-item"></iframe>
     </div>
+    <div class="text-center mb-3">
+        <a href="{% url 'books' %}" type="button" class="btn btn-primary">Shop Books!</a>
+    </div>
+<!--If cart has items-->
 {% else %}
     <div class="container">
-        <div class="row row-flex d-flex center-align-book-sm  py-3">
+        <div class="row row-flex d-flex center-align-book-sm  my-3">
             {% for item in cart_items %}
             <div class="col-12">
                 <div class="card mb-3 card-book-box-shadow" style="max-width: 540px;">
