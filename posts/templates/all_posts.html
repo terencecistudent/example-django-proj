@@ -15,7 +15,7 @@
     </div>
     <!--Forum posts presented-->
     {% for post in posts %}
-        <div class="row my-3">
+        <div class="row my-3 py-2 post-border">
             <div class="col-8">
                 <a href="{% url 'post_detail' post.id %}" class="pb-1">
                     <i class="fas fa-comments"></i>
@@ -37,8 +37,23 @@
                 </p>
             </div>
         </div>
-        <hr>
     {% endfor %}
+    <!--Pagination-->
+    <div class="justify-content-center">
+        <p class="text-center">
+            {% if posts.has_previous %}
+                <a href="?page={{ posts.previous_page_number }}">
+                    <i class="fas fa-chevron-left pr-1"></i>
+                </a>
+            {% endif %}
+            Page {{ posts.number }} of {{ posts.paginator.num_pages }}
+            {% if posts.has_next %}
+                <a href="?page={{ posts.next_page_number }}">
+                    <i class="fas fa-chevron-right pl-1"></i>
+                </a>
+            {% endif %}
+        </p>
+    </div>
 </div>
 
 {% endblock %}

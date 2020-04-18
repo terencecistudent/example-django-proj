@@ -8,36 +8,29 @@
     <!--Post content-->
     <div class="row my-3 text-center">
         <div class="col-12">
-            <h4>
+            <h4 class="my-2">
                 <strong>{{ post.title }}</strong>
             </h4>
-            <p>{{ post.content }}</p>
-        </div>
-        <div class="row text-center">
-            <div class="col">
-                <p>
-                    <small>Posted by {{ post.user }} on {{ post.date_published }}</small>
-                </p>
-            </div>
+            <p class="pt-2">{{ post.content }}</p>
+            <p class="text-center">
+                <small>Posted by {{ post.user }} on {{ post.date_published }}</small>
+            </p>
         </div>
     </div>
     <br>
     <hr class="hr-line-lightgray">
     <!--Comments belonging to the post-->
     <p>
-        <small><strong>Comments:</strong></small>
+        <strong>Comments:</strong>
     </p>
     {% for comment in post.comments.all %}
         <div class="row">
             <div class="col-12">
-                <div class="row">
-                    <div class="col">
-                        <p>{{ comment.content }}</p>
-                        <p>
-                            <small>Posted by {{ comment.user }} on {{ comment.comment_created_date }}</small>
-                        </p>
-                    </div>
-                </div>
+                <p class="break-word">{{ comment.content }}</p>
+                <p>
+                    <small>Posted by {{ comment.user }} on {{ comment.comment_created_date }}</small>
+                </p>
+                <hr id="hr-line-comments">
             </div>
         </div>
     {% endfor %}
@@ -46,7 +39,7 @@
         <div class="col-12">
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                <textarea rows="5" name="content" class="form-control comment-form box-shadow-comments" id="reply" placeholder="Write a comment..." required></textarea>
+                <textarea rows="5" name="content" class="form-control comment-form box-shadow-comments" placeholder="Write a comment..." required></textarea>
                 <div class="d-flex justify-content-center my-2">
                     <button type="submit" class="btn btn-success mr-2">Comment! <i class="far fa-comment"></i></button>
                     <a href="{% url 'all_posts' %}" class="btn btn-info ml-2">Back to Forum</a>
