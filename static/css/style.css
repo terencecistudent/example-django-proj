@@ -20,7 +20,7 @@ body {
     background-size: cover;
     width: 100%;
     min-height: -webkit-fill-available;
-    height: 100vh;
+    height: 100%;
 }
 
 /*
@@ -47,13 +47,20 @@ body {
 }
 
 /*
-    forum comments box shadow
+    forum posts
 */
 .box-shadow-comments {
     max-width: 400px; 
     margin: auto;
     padding: 10px;
     box-shadow: 0px 0px 3px 3px #888888;
+}
+
+/*
+    border for forum posts
+*/
+.post-border {
+    border: 1px solid rgb(170, 169, 169);
 }
 
 /*
@@ -70,6 +77,21 @@ body {
 .hr-line-light {
     border: 0.5px solid rgb(216, 216, 216);
     width: 70%;
+}
+
+/*
+    hr line comments
+*/
+#hr-line-comments {
+    border: 0.5px solid rgb(150, 150, 150);
+    width: 100%;
+}
+
+/*
+    comments section viewing break-word
+*/
+.break-word {
+    overflow-wrap: break-word;
 }
 
 /*
