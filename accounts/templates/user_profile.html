@@ -6,6 +6,7 @@
 
 {% block content %}
 
+<!--Displays user details-->
  <div class="text-center">
     <h3 class="py-3">
         {{ user }}'s Profile
@@ -20,34 +21,11 @@
         <h6 class="py-2"><strong>Email Address:</strong></h6>
             {{ profile.email }}
     </span>
+    <div class="justify-content-center mt-3">
+		<a href="{% url 'update_user_info' user.id %}" class="btn btn-warning">Edit Profile
+			<i class="fas fa-user-edit"></i>
+        </a>
+	</div>
 </div>
-            <!--User's orders-->
-            <!-- <div class="col-sm-12 col-md-6 col-lg-6">
-                {% if user.orders.all.count == 0 %}
-                    <h3>Nothing here</h3>
-                {% else %}
-                    <h3 class="py-3">
-                        Purchases
-                        <span>
-                            <i class="fas fa-credit-card"></i>
-                        </span>
-                    </h3>
-                    <div class="card mb-3" style="max-width: 540px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img src="{{ book.image }}" class="card-img" alt="{{ book.title }}">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ book.title }}</h5>
-                                    <p class="card-text">{{ book.author }}</p>
-                                    <p class="card-text">{{ book.genre }}</p>
-                                    <p class="card-text">{{ book.price }}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {% endif %}
-            </div> -->
 
 {% endblock %}

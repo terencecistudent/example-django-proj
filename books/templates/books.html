@@ -33,15 +33,15 @@
                 <!--Dropdown select Genre-->
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 py-1">
                     <div class="dropdown btn-group">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="genreDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-primary dropdown-toggle btn-selected" type="button" id="genreDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Genre
                         </button>
                         <div class="dropdown-menu" aria-labelledby="genreDropdown">
-                            <a href="{% url 'comics' %}" class="dropdown-item item-genre">Comics</a>
-                            <a href="{% url 'food' %}" class="dropdown-item item-genre">Food</a>
-                            <a href="{% url 'horror' %}" class="dropdown-item item-genre">Horror</a>
-                            <a href="{% url 'mystery' %}" class="dropdown-item item-genre">Mystery</a>
-                            <a href="{% url 'sport' %}" class="dropdown-item item-genre">Sport</a>
+                            <a href="{% url 'comics' %}" class="dropdown-item">Comics</a>
+                            <a href="{% url 'food' %}" class="dropdown-item">Food</a>
+                            <a href="{% url 'horror' %}" class="dropdown-item">Horror</a>
+                            <a href="{% url 'mystery' %}" class="dropdown-item">Mystery</a>
+                            <a href="{% url 'sport' %}" class="dropdown-item">Sport</a>
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                             Published Date
                         </button>
                         <div class="dropdown-menu" aria-labelledby="datePublishedDropdown">
-                            <a href="{% url 'published_date_desc' %}" class="dropdown-item">Newest</a>
+                            <a href="{% url 'published_date_desc' %}" class="dropdown-item" id="newest-published">Newest</a>
                             <a href="{% url 'published_date_asc' %}" class="dropdown-item">Oldest</a>
                         </div>
                     </div>
@@ -67,6 +67,12 @@
             </div>
         </div>
     </div>
+    <hr class="hr-line-filter mt-4">
+    <!--Shows what the user has selected from dropdown list-->
+    <div class="text-center my-4" id="filter-div">
+        <h4>Filter:</h4>
+        <h5 id="selectedOption" class="options"></h5>
+    </div>
     <div class="row py-4 text-center">
         <!--Looping through all of the books-->
         {% for book in books %} 
@@ -79,7 +85,7 @@
                     <div class="card-body">
                         <a href="{% url 'book_info' book.id %}">
                             <div class="book-name-height">
-                                <h6 class="card-title">{{ book.name }}</h6>
+                                <h6 class="card-title text-dark">{{ book.name }}</h6>
                             </div>
                         </a>
                         <h5 class="card-text">€{{ book.price }}</h5>

@@ -24,6 +24,13 @@ body {
 }
 
 /*
+    Navbar link style
+*/
+.navbar-dark .nav-item > .nav-link.active  {
+    color: #fff;
+}
+
+/*
     sign in link
 */
 .login-link {
@@ -88,6 +95,14 @@ body {
 }
 
 /*
+    hr line filter div
+*/
+.hr-line-filter {
+    border: 0.5px solid rgb(172, 169, 169);
+    width: 30%;
+}
+
+/*
     comments section viewing break-word
 */
 .break-word {
@@ -132,6 +147,13 @@ body {
 
 #search-box[type=text]:focus {
   width: 80%;
+}
+
+/*
+    filter-div
+*/
+#filter-div {
+    height: 70px;
 }
 
 /*

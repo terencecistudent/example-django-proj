@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% load bootstrap_tags %}
+
+{% block content %}
+
+<h1 class="text-center">{{ request.user }}'s profile</h1>
+<div class="profile-form-style">
+    <form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+        {{ update_form | as_bootstrap }}
+        <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-star-trek profile-form-button">Save <i class="fas fa-save"></i></button>
+        <a href="{% url 'profile' request.user.id %}" class="btn btn-info">Cancel <i class="fas fa-ban"></i></a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
