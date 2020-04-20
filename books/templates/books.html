@@ -5,13 +5,13 @@
 {% block content %}
 
 <div class="container">
-    <h2 class="text-center my-4">Books</h2>
+    <h3 class="text-center my-3">Books</h3>
     <!--Search Input-->
     <div class="row py-3 mt-2 text-center">
         <div class="col-12">
             <form action="{% url 'search' %}" method="GET">
                 <input type="text" name="q" id="search-box" placeholder="Search for a book">
-                <button type="submit" class="btn btn-dark btn-lg"><i class="fas fa-search"></i></button>
+                <button type="submit" class="btn btn-dark btn-lg" id="search-button"><i class="fas fa-search"></i></button>
             </form>
         </div>
     </div>
@@ -21,7 +21,7 @@
                 <!--Dropdown select Price options low-high or high-low-->
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 py-1">
                     <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="priceDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-primary btn-lg dropdown-toggle" type="button" id="priceDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Price
                         </button>
                         <div class="dropdown-menu" aria-labelledby="priceDropdown">
@@ -33,7 +33,7 @@
                 <!--Dropdown select Genre-->
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 py-1">
                     <div class="dropdown btn-group">
-                        <button class="btn btn-primary dropdown-toggle btn-selected" type="button" id="genreDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-primary btn-lg dropdown-toggle btn-selected" type="button" id="genreDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Genre
                         </button>
                         <div class="dropdown-menu" aria-labelledby="genreDropdown">
@@ -48,7 +48,7 @@
                 <!--Dropdown Pusblished Date Newest and Oldest options-->
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 py-1">
                     <div class="dropdown">
-                        <button class="btn btn-primary dropdown-toggle" type="button" id="datePublishedDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <button class="btn btn-primary btn-lg dropdown-toggle" type="button" id="datePublishedDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Published Date
                         </button>
                         <div class="dropdown-menu" aria-labelledby="datePublishedDropdown">
@@ -59,7 +59,7 @@
                 </div>
                 <!--Reset filters-->
                 <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 py-1">
-                    <a href="{% url 'books' %}" class="btn btn-danger" role="button">
+                    <a href="{% url 'books' %}" class="btn btn-danger btn-lg" role="button" id="reset-btn">
                         Reset 
                         <i class="far fa-times-circle"></i>    
                     </a>
@@ -67,9 +67,9 @@
             </div>
         </div>
     </div>
-    <hr class="hr-line-filter mt-4">
+    <hr class="hr-line-filter mt-4" id="filter-hr">
     <!--Shows what the user has selected from dropdown list-->
-    <div class="text-center my-4" id="filter-div">
+    <div class="text-center" id="filter-div">
         <h4>Filter:</h4>
         <h5 id="selectedOption" class="options"></h5>
     </div>
@@ -105,7 +105,7 @@
         {% endfor %}
     </div>
     <!--Pagination-->
-    <div class="justify-content-center">
+    <div class="justify-content-center" id="pagination-content">
         <p class="text-center">
             {% if books.has_previous %}
                 <a href="?page={{ books.previous_page_number }}">

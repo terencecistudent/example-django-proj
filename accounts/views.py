@@ -1,9 +1,8 @@
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from accounts.forms import LoginForm, RegisterForm, UpdateForm
-from checkout.models import UserOrder
+from accounts.forms import LoginForm, RegisterForm
 
 
 def index(request):
@@ -93,23 +92,3 @@ def user_profile(request):
     user = User.objects.get(email=request.user.email,
                             username=request.user.username)
     return render(request, "user_profile.html", {"profile": user})
-
-
-def update_user_info(request, id):
-    user = get_object_or_404(User, pk=id)
-    if user.id != request.user.id:
-        return redirect("index")
-    else:
-        if request.method == "POST":
-            form = UpdateForm(request.POST, request.FILES,
-                              id, instance=user)
-
-            if form.is_valid():
-                user = form.save(commit=False)
-                user.save()
-                messages.success(
-                    request, "You have successfuly edited your information!")
-                return redirect(user_profile, user.id)
-        else:
-            form = UpdateForm(instance=user)
-    return render(request, 'user_profile.html', {'form': form}, {'user': user},)

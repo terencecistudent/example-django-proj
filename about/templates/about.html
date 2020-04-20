@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block page_title %} About {% endblock %}
+
+{% block page_heading %} About {% endblock %}
+
+{% block content %}
+
+<div class="container text-center my-4 bookdetail-about-display">
+    <h3 class="my-3">About</h3>
+    <h5 class="mt-3">Shopping For Books</h5>
+    <p class="mb-3">
+        This website sells books with a few genres which are: Comics, Food, Horror,
+        Mystery and Sport.  Books can be found by using the search bar, simply put
+        the same of the book into the search box and press the search icon.  Other
+        ways books can be found are by using the price, genre and published date dropdowns.  
+        Add any book to the cart and simply choose the number of books you would like to
+        purchase.  In the cart, the items which you have selected will show with the total
+        amount.  Change the quantity of a book easily by entering in a new quantity number
+        followed by the blue edit icon button.
+    </p>
+    <div class="text-center mb-3">
+        <a href="{% url 'books' %}" type="button" class="btn btn-primary">Shop Books!</a>
+    </div>
+    <hr class="hr-line-lightgray">
+    <h5 class="mt-5">The Forum</h5>
+    <p>
+        In the forums page, customers are able to share their ideas and
+        start posts relating to the books on the website.  Users can reply inside posts
+        if they would like to give feedback to a certain post.  The forum posts are ordered
+        by the date they were posted (newest first).
+    </p>
+    <p>
+        <strong>To view the forum page, an account must be created!</strong>
+    </p>
+</div>
+
+{% endblock %}

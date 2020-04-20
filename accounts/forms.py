@@ -54,9 +54,3 @@ class RegisterForm(UserCreationForm):
         if password1 != password2:
             raise forms.ValidationError("Passwords do not match!")
         return password2
-
-
-class UpdateForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ("username",)

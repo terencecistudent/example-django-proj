@@ -7,7 +7,7 @@
 {% block content %}
 
 <!--Displays user details-->
- <div class="text-center">
+ <div class="text-center mt-3" id="user-info-display">
     <h3 class="py-3">
         {{ user }}'s Profile
         <span>
@@ -21,11 +21,6 @@
         <h6 class="py-2"><strong>Email Address:</strong></h6>
             {{ profile.email }}
     </span>
-    <div class="justify-content-center mt-3">
-		<a href="{% url 'update_user_info' user.id %}" class="btn btn-warning">Edit Profile
-			<i class="fas fa-user-edit"></i>
-        </a>
-	</div>
 </div>
 
 {% endblock %}

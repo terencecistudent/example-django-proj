@@ -13,6 +13,7 @@
             <p class="lead">
                 <strong>You are now signed in and able to view the <em>Forum</em> page.</strong>
             </p>
+            <a class="btn btn-outline-light btn-lg" href="{% url 'all_posts' %}" role="button">View Forum</a>
         {% else %}
             <p class="lead"><strong>To view the Forum page, you will need to create an account or sign in.</strong></p>
             <a class="btn btn-outline-light btn-lg" href="{% url 'register' %}" role="button">Register</a>

@@ -22,6 +22,7 @@ from cart import urls as urls_cart
 from search import urls as urls_search
 from checkout import urls as urls_checkout
 from posts import urls as urls_posts
+from about import urls as urls_about
 # from newsletter import urls as urls_newsletter
 from django.views import static
 from .settings import MEDIA_ROOT
@@ -35,6 +36,7 @@ urlpatterns = [
     url(r'^search/', include(urls_search)),
     url(r'^checkout/', include(urls_checkout)),
     url(r'^posts/', include(urls_posts)),
+    url(r'^about/', include(urls_about)),
     # url(r'^newsletter/', include(urls_newsletter)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 ]

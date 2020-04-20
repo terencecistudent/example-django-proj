@@ -28,10 +28,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'index' %}">Home</a>
+                    <a class="nav-link" href="{% url 'index' %}" id="home-item">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'books' %}">Books</a>
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'books' %}" id="books-item">Books</a>
                 </li>
                 {% if user.is_authenticated %}
                     <!--If user signed in, show Forum, Profile and Logout links-->
