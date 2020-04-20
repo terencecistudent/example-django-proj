@@ -9,8 +9,9 @@
 <!--Section containing item(s) in the cart-->
 <!--If cart is empty-->
 {% if total == 0 %}
-    <div class="text-center embed-responsive embed-responsive-21by9 py-3 my-4">
-        <iframe src="https://giphy.com/embed/idwUtDdOYJ9i41vFEz" max-width="480" max-height="270" class="embed-responsive-item"></iframe>
+    <div class="text-center my-4" id="no-cart-items">
+        <h5>Sorry there are no items in your cart!</h5>
+        <p>Go visit the Books page and explore!</p>
     </div>
     <div class="text-center mb-3">
         <a href="{% url 'books' %}" type="button" class="btn btn-primary">Shop Books!</a>

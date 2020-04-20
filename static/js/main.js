@@ -26,47 +26,60 @@ $( document ).ready(function() {
     }
 
     /*
-        changes html text depending on url match below 'Filter:' and
+        Changes html text depending on url match below 'Filter:' and
         keeps navbar link active after each filter change
     */
-    url = window.location.href;
+    url = window.location.pathname;
 
-    if (url.match("/books/published_date_desc")) {
-        $("#selectedOption").html("Newest");
-        $("#books-item").addClass("active");
-    } else if (url.match("/books/published_date_asc")) {
-        $("#selectedOption").html("Oldest");
-        $("#books-item").addClass("active");
-    } else if (url.match("/books/price_asc")) {
-        $("#selectedOption").html("Low-High");
-        $("#books-item").addClass("active");
-    } else if (url.match("/books/price_desc")) {
-        $("#selectedOption").html("High-Low");
-        $("#books-item").addClass("active");
-    } else if (url.match("/books/comics")) {
-        $("#selectedOption").html("Comics");
-        $("#books-item").addClass("active");
-        $("#pagination-content").hide();
-    } else if (url.match("/books/food")) {
-        $("#selectedOption").html("Food");
-        $("#books-item").addClass("active");
-        $("#pagination-content").hide();
-    } else if (url.match("/books/horror")) {
-        $("#selectedOption").html("Horror");
-        $("#books-item").addClass("active");
-        $("#pagination-content").hide();
-    } else if (url.match("/books/mystery")) {
-        $("#selectedOption").html("Mystery");
-        $("#books-item").addClass("active");
-        $("#pagination-content").hide();
-    } else if (url.match("/books/sport")) {
-        $("#selectedOption").html("Sport");
-        $("#books-item").addClass("active");
-        $("#pagination-content").hide();
+    console.log(url, "hello");
+    const urlArray = [
+        {
+            path: "/books/published_date_desc",
+            value: "Newest"
+        },
+        {
+            path: "/books/published_date_asc",
+            value: "Oldest"
+        },
+        {
+            path: "/books/price_asc",
+            value: "Low-High"
+        },
+        {
+            path: "/books/price_desc",
+            value: "High-Low"
+        },
+        {
+            path: "/books/comics",
+            value: "Comics"
+        },
+        {
+            path: "/books/food",
+            value: "Food"
+        },
+        {
+            path: "/books/horror",
+            value: "Horror"
+        },
+        {
+            path: "/books/mystery",
+            value: "Mystery"
+        },
+        {
+            path: "/books/sport",
+            value: "Sport"
+        },
+    ]
+
+    for (let i=0; i < urlArray.length; i++) {
+        if (url === urlArray[i].path) {
+            $("#selectedOption").html(urlArray[i].value);
+            $("#books-item").addClass("active");
+        }
     }
 
     /*
-        if URL matches /search/ then remove hr line,
+        If URL matches /search/ then remove hr line,
         filter div and pagination
     */
     if (url.match("/search/")) {
