@@ -1,12 +1,15 @@
 from django.db import models
 from books.models import Book
+from django.contrib.auth.models import User
 
 
-class UserOrder(models.Model):
+class Order(models.Model):
     """
     Fields used for when the user
     is checking out
     """
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, null=True)
     first_name = models.CharField(max_length=40, blank=False)
     last_name = models.CharField(max_length=40, blank=False)
     phone_number = models.CharField(max_length=20, blank=False)
@@ -28,9 +31,12 @@ class OrderLineItem(models.Model):
     Will return quantity of books being bought,
     book name and price.
     """
-    order = models.ForeignKey(UserOrder, null=False)
+    order = models.ForeignKey(Order, null=False, related_name="orderline")
     book = models.ForeignKey(Book, null=False)
     quantity = models.IntegerField(blank=False)
+
+    def line_total(self):
+        return self.quantity * self.book.price
 
     def __str__(self):
         return "{0}-{1}-{2}".format(self.quantity, self.book.name,

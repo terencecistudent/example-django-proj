@@ -3,7 +3,7 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from accounts.forms import LoginForm, RegisterForm
-from checkout.models import UserOrder
+from checkout.models import Order
 
 
 def index(request):
@@ -92,4 +92,7 @@ def user_profile(request):
     """
     user = User.objects.get(email=request.user.email,
                             username=request.user.username)
-    return render(request, "user_profile.html", {"profile": user})
+    orders = Order.objects.filter(user=request.user).order_by('-date')
+    # for order in orders:
+    #     print(type(order))
+    return render(request, "user_profile.html", {"profile": user, "orders": orders})

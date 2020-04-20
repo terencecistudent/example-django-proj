@@ -1,13 +1,13 @@
 from django.contrib import admin
-from .models import UserOrder, OrderLineItem
+from .models import Order, OrderLineItem
 
 
 class OrderLineAdminInline(admin.TabularInline):
     model = OrderLineItem
 
 
-class UserOrderAdmin(admin.ModelAdmin):
+class OrderAdmin(admin.ModelAdmin):
     inlines = (OrderLineAdminInline, )
 
 
-admin.site.register(UserOrder, UserOrderAdmin)
+admin.site.register(Order, OrderAdmin)

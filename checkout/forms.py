@@ -1,5 +1,5 @@
 from django import forms
-from .models import UserOrder
+from .models import Order
 
 
 class PaymentForm(forms.Form):
@@ -23,7 +23,7 @@ class PaymentForm(forms.Form):
 
 class OrderForm(forms.ModelForm):
     class Meta:
-        model = UserOrder
+        model = Order
         fields = (
             "first_name",
             "last_name",

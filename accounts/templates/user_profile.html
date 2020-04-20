@@ -22,5 +22,21 @@
             {{ profile.email }}
     </span>
 </div>
+<div class="text-center my-4">
+    <h3>Orders</h3>
+    {% for order in orders.all %}
+        <h4>
+            {{ order.date }}
+        </h4>
+        {% for line in order.orderline.all %}
+            <div class="text-center">
+                <h5 class="text-center">{{ line.book.name }}</h5>
+                <p class="text-center">€{{ line.book.price }}</p>
+                <p class="text-center">{{ line.quantity }}</p>
+                <p class="text-center">€{{ line.line_total }}</p>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
 
 {% endblock %}
