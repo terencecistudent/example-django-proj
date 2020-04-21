@@ -7,7 +7,7 @@
 {% block content %}
 
 <!--Displays user details-->
- <div class="text-center mt-3" id="user-info-display">
+ <div class="text-center my-3 user-info-display">
     <h3 class="py-3">
         {{ user }}'s Profile
         <span>
@@ -15,27 +15,47 @@
         </span>
     </h3>
     <span>
-        <h6 class="py-2"><strong>Username:</strong></h6>
-            {{ profile.username }}
+        <h6 class="py-2">
+            <strong>Username:</strong>
+        </h6>
+        {{ profile.username }}
             <br>
-        <h6 class="py-2"><strong>Email Address:</strong></h6>
-            {{ profile.email }}
+        <h6 class="py-2">
+            <strong>Email Address:</strong>
+        </h6>
+         {{ profile.email }}
     </span>
 </div>
-<div class="text-center my-4">
-    <h3>Orders</h3>
+<hr class="hr-line-lightgray">
+<div class="text-center my-4 user-info-display">
+    <h3 class="py-4">Orders</h3>
+    <h5 class="mb-4">Most Recent:</h5>
     {% for order in orders.all %}
-        <h4>
-            {{ order.date }}
-        </h4>
+        <h6 class="py-2">
+            <strong>Order Date:</strong>
+        </h6>
+        {{ order.date }}
         {% for line in order.orderline.all %}
             <div class="text-center">
-                <h5 class="text-center">{{ line.book.name }}</h5>
-                <p class="text-center">€{{ line.book.price }}</p>
-                <p class="text-center">{{ line.quantity }}</p>
-                <p class="text-center">€{{ line.line_total }}</p>
+                <h6 class="py-2">
+                    <strong>Username:</strong>
+                </h6>
+                {{ line.book.name }}
+                <h6 class="py-2">
+                    <strong>Book Price:</strong>
+                </h6>
+                €{{ line.book.price }}
+                <h6 class="py-2">
+                    <strong>Quantity:</strong>
+                </h6>
+                {{ line.quantity }}
+                <h6 class="py-2">
+                    <strong>Total Price:</strong>
+                </h6>
+                €{{ line.line_total }}
             </div>
         {% endfor %}
+        <hr class="hr-line-filter">
     {% endfor %}
 </div>
 
