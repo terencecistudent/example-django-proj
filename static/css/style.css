@@ -50,11 +50,12 @@ body {
     login and register form style
 */
 .login-register-form-style {
-    width: 100%; 
+    width: 100%;
+    background-color: #fff;
     max-width: 350px; 
     margin: auto;
     padding: 10px;
-    box-shadow: 0px 0px 10px 2px #888888;
+    box-shadow: 0px 0px 10px 5px #373c42d4;
 }
 
 /*
@@ -64,7 +65,7 @@ body {
     max-width: 400px; 
     margin: auto;
     padding: 10px;
-    box-shadow: 0px 0px 10px 2px #888888;
+    box-shadow: 0px 0px 10px 5px #373c42d4;
 }
 
 /*
@@ -73,7 +74,7 @@ body {
 .post-border {
     border: 1px solid rgb(170, 169, 169);
     background-color: #fff;
-    box-shadow: 0px 0px 10px 2px #424242;
+    box-shadow: 0px 0px 10px 5px #373c42d4;
     border-radius: 10px;
 }
 
@@ -117,13 +118,22 @@ body {
 }
 
 /*
+    comments style in posts
+*/
+#display-comments-style {
+    box-shadow: 0px 0px 10px 5px #373c42d4;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+/*
     no items in cart display
 */
 #no-cart-items {
     width: 40%;
     background-color: #fff;
     padding: 10px;
-    box-shadow: 0px 0px 10px 2px #888888;
+    box-shadow: 0px 0px 10px 5px #373c42d4;
     align-self: center;
     border-radius: 10px;
 }
@@ -132,18 +142,19 @@ body {
     checkout payment form
 */
 .payment-form-style {
-    width: 100%;
+    width: 90%;
+    background-color: #fff;
     max-width: 700px;
     margin: auto;
     padding: 10px;
-    box-shadow: 0px 0px 10px 2px #888888;
+    box-shadow: 0px 0px 10px 5px #373c42d4;
 }
 
 /*
     box shadow for checkout books
 */
 .card-book-box-shadow {
-    box-shadow: 0px 0px 10px 2px #888888;
+    box-shadow: 0px 0px 10px 5px #373c42d4;
 }
 
 /*
@@ -181,7 +192,7 @@ body {
     background-color: #fff;
     border-radius: 10px;
     padding: 10px;
-    box-shadow: 0px 0px 10px 2px #373c42d4;
+    box-shadow: 0px 0px 10px 5px #373c42d4;
 }
 
 /*
@@ -191,9 +202,29 @@ body {
     background-color: #fff;;
     border-radius: 10px;
     padding: 10px;
-    box-shadow: 0px 0px 10px 2px #373c42d4;
-    width: 40%;
+    box-shadow: 0px 0px 10px 5px #373c42d4;
+    width: 70%;
     align-self: center;
+}
+
+.user-order-display {
+    background-color: #fff;;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0px 0px 10px 5px #373c42d4;
+    width: 80%;
+    align-self: center;
+}
+
+.table-row-style {
+    box-shadow: 0px 0px 10px 5px;
+    background-color: #fff;
+}
+
+@media (min-width: 576px)
+.container {
+    /* max-width: 540px; */
+    width: 100%;
 }
 
 /*

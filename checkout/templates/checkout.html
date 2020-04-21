@@ -16,35 +16,33 @@
 
 <!--Page title for user navigation-->
 <h2 class="text-center py-3">Checkout</h2>
-<!--Section containing item(s) in the checkout-->
-<div class="container">
-    <div class="row row-flex d-flex center-align-book-sm py-3">
-        {% for item in cart_items %}
-        <div class="col-12">
-            <div class="card border-dark mb-3 card-book-box-shadow" style="max-width: 540px;">
-                <div class="row no-gutters">
-                    <div class="col-md-4">
-                        <img src="{{ MEDIA_URL }}{{ item.book.image }}" class="card-img" alt="{{ item.book.name }}">
-                    </div>
-                    <div class="col-md-5">
-                        <div class="card-body">
-                            <h5 class="card-title">{{ item.book.name }}</h5>
-                            <p class="card-text">{{ item.book.author }}</p>
-                            <p class="card-text">{{ item.book.genre }}</p>
-                            <h5 class="card-text">€{{ item.book.price }}</h5>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="card-body">
-                            Quantity:
-                            <p class="card-text">{{ item.quantity }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+<div class="center-align-book-sm">
+    <table class="table table-borderless table-responsive-sm text-center" style="width: 90%;">
+        <thead>
+            <tr>
+                <th scope="col" colspan="2">Image</th>
+                <th scope="col" colspan="3">Name</th>
+                <th scope="col" colspan="2">Author</th>
+                <th scope="col" colspan="2">Genre</th>
+                <th scope="col" colspan="2">Price</th>
+                <th scope="col" colspan="2">Quantity</th>
+            </tr>
+        </thead>
+        <tbody class="mb-2">
+            {% for item in cart_items %}
+                <tr class="table-row-style mb-5">
+                    <td colspan="2">
+                        <img src="{{ MEDIA_URL}}{{ item.book.image }}" width="70" height="100">
+                    </td>
+                    <th scope="row" colspan="3">{{ item.book.name }}</th>
+                    <td colspan="2">{{ item.book.author }}</td>
+                    <td colspan="2">{{ item.book.genre }}</td>
+                    <td colspan="2">€{{ item.book.price }}</td>
+                    <td colspan="2">{{ item.quantity }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 <!--Total price for all orders in the checkout-->
 <h4 class="text-center">

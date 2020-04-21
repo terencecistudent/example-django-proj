@@ -6,10 +6,16 @@
 
 {% block content %}
 
+<h3 class="my-3 text-center">
+    {{ user }}'s Profile
+    <span>
+        <i class="fas fa-user"></i>
+    </span>
+</h3>
 <!--Displays user details-->
- <div class="text-center my-3 user-info-display">
+<div class="text-center my-3 user-info-display my-4">
     <h3 class="py-3">
-        {{ user }}'s Profile
+        {{ user }}'s Account Details
         <span>
             <i class="fas fa-user"></i>
         </span>
@@ -27,36 +33,42 @@
     </span>
 </div>
 <hr class="hr-line-lightgray">
-<div class="text-center my-4 user-info-display">
-    <h3 class="py-4">Orders</h3>
-    <h5 class="mb-4">Most Recent:</h5>
-    {% for order in orders.all %}
-        <h6 class="py-2">
-            <strong>Order Date:</strong>
-        </h6>
-        {{ order.date }}
-        {% for line in order.orderline.all %}
-            <div class="text-center">
-                <h6 class="py-2">
-                    <strong>Username:</strong>
-                </h6>
-                {{ line.book.name }}
-                <h6 class="py-2">
-                    <strong>Book Price:</strong>
-                </h6>
-                €{{ line.book.price }}
-                <h6 class="py-2">
-                    <strong>Quantity:</strong>
-                </h6>
-                {{ line.quantity }}
-                <h6 class="py-2">
-                    <strong>Total Price:</strong>
-                </h6>
-                €{{ line.line_total }}
-            </div>
-        {% endfor %}
-        <hr class="hr-line-filter">
-    {% endfor %}
+<!--Displays user's order history-->
+<div class="text-center my-5 user-order-display">
+    <h3 class="py-4">
+        {{ user }}'s Order History
+        <span>
+            <i class="fas fa-shopping-bag"></i>
+        </span>
+    </h3>
+    <table class="table table-borderless table-responsive-sm">
+        <thead>
+            <tr>
+                <th scope="col" colspan="2">Book Image</th>
+                <th scope="col" colspan="2">Book Name</th>
+                <th scope="col" colspan="2">Book Price</th>
+                <th scope="col" colspan="2">Order Date</th>
+                <th scope="col" colspan="2">Quantity</th>
+                <th scope="col" colspan="2">Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders.all %}
+                {% for line in order.orderline.all %}
+                    <tr class="table-row-style">
+                        <td colspan="2">
+                            <img src="{{ MEDIA_URL}}{{ line.book.image }}" width="70" height="100">
+                        </td>
+                        <th colspan="2">{{ line.book.name }}</th>
+                        <td colspan="2">€{{ line.book.price }}</td>
+                        <td colspan="2">{{ order.date }}</td>
+                        <td colspan="2">{{ line.quantity }}</td>
+                        <td colspan="2">€{{ line.line_total }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 
 {% endblock %}

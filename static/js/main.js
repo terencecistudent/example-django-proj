@@ -31,7 +31,6 @@ $( document ).ready(function() {
     */
     url = window.location.pathname;
 
-    console.log(url, "hello");
     const urlArray = [
         {
             path: "/books/published_date_desc",

@@ -24,13 +24,12 @@
         <strong>Comments:</strong>
     </p>
     {% for comment in post.comments.all %}
-        <div class="row">
+        <div class="row py-3 mb-4" id="display-comments-style">
             <div class="col-12">
                 <p class="break-word">{{ comment.content }}</p>
                 <p>
                     <small>Posted by {{ comment.user }} on {{ comment.comment_created_date }}</small>
                 </p>
-                <hr id="hr-line-comments">
             </div>
         </div>
     {% endfor %}
