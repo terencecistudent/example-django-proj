@@ -221,12 +221,6 @@ body {
     background-color: #fff;
 }
 
-@media (min-width: 576px)
-.container {
-    /* max-width: 540px; */
-    width: 100%;
-}
-
 /*
     center align books
 */

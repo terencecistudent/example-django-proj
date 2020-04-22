@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/terencecistudent/teds-books-online.svg?branch=master)](https://travis-ci.org/terencecistudent/teds-books-online)
+
 # Ted's Books Online - Code Institute
 
 ## Description
@@ -139,6 +141,10 @@ There are a few features included for this application to work:
 #
 
 
+## Database Schema
+For this project I have used Heroku's add-on SQL Postgres.
+
+
 ## Deployment
 This application was deployed using Heroku which can be viewed from here: 
 ...
@@ -157,7 +163,7 @@ There are no differences between the website's development version and the deplo
 5. Go to **Settings > Reveal Config Vars**:
     - Enter Keys and their values, example keys below:
 
-    ![image](https://user-images.githubusercontent.com/48124466/76408488-eeb69f00-6384-11ea-8672-d0261d3156f5.png)
+    ![image]())
 6. In the CLI, login into Heroku by **heroku login -i**, where you will be asked to your enter email address and
     password.
 7. If you have already created your Heroku app, you can remote to your local repository with the heroku git:remote command.
@@ -232,9 +238,16 @@ such tests involve:
 
 
 ### Manual Tests:
-I have also carried out manual tests which show the CRUD operations in use and filtering animal types.
+I have carried out manual tests on the functionality of the website.
 
-[Manual Tests](https://github.com/terencecistudent/Data-Centric-Dev-Project-TL/blob/master/testing/Manual%20Tests.pdf)
+[Manual Tests](https://github.com/terencecistudent/teds-books-online/blob/master/testing/Manual%20Tests.pdf)
+
+
+### Responsiveness On Different Devices Tests:
+I have carried out tests where I show my application being responsive on Google Chrome's laptop, iPad and
+iPhone 6/7/8 views.
+
+[Responsive Tests](https://github.com/terencecistudent/teds-books-online/blob/master/testing/Responsiveness%20On%20Different%20Devices.pdf)
 
 
 ### Running Responsive Designs on Google Chrome:
