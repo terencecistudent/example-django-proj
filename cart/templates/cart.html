@@ -5,7 +5,13 @@
 {% block content %}
 
 <!--Page title for user navigation-->
-<h2 class="text-center my-3">Cart</h2>
+<div class="text-center">
+    <h2 class="my-3">Cart</h2>
+    <a href="{% url 'books' %}" type="button" class="btn btn-warning text-center my-2">
+        Back to Books
+        <i class="fas fa-book"></i>
+    </a>
+</div>
 <!--Section containing item(s) in the cart-->
 <!--If cart is empty-->
 {% if total == 0 %}
