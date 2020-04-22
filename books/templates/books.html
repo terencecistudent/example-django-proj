@@ -73,37 +73,41 @@
         <h4>Filter:</h4>
         <h5 id="selectedOption" class="options"></h5>
     </div>
-    <div class="row py-4 text-center">
-        <!--Looping through all of the books-->
-        {% for book in books %} 
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 my-4 center-align-book-sm">
-                <!--Display for books and their details-->
-                <div class="card login-register-form-style" style="width: 12.5rem;">
-                    <a href="{% url 'book_info' book.id %}">
-                        <img src="{{ MEDIA_URL }}{{ book.image }}" class="card-img-top book-image" alt="{{ book.name }}" width="200" height="250">
-                    </a>
-                    <div class="card-body">
+    {% if books %}
+        <div class="row py-4 text-center">
+            <!--Looping through all of the books-->
+            {% for book in books %} 
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 my-4 center-align-book-sm">
+                    <!--Display for books and their details-->
+                    <div class="card login-register-form-style" style="width: 12.5rem;">
                         <a href="{% url 'book_info' book.id %}">
-                            <div class="book-name-height">
-                                <h6 class="card-title text-dark">{{ book.name }}</h6>
-                            </div>
+                            <img src="{{ MEDIA_URL }}{{ book.image }}" class="card-img-top book-image" alt="{{ book.name }}" width="200" height="250">
                         </a>
-                        <h5 class="card-text">€{{ book.price }}</h5>
-                        <!--Add to Cart submit button-->
-                        <form action="{% url 'add_book_to_cart' book.id %}" method="POST" class="py-2">
-                            {% csrf_token %}
-                            <div class="input-group">
-                                <input type="number" name="quantity" min="1" max="999" placeholder="Quantity" class="form-control">
-                            </div>
-                            <div class="input-group-prepend justify-content-center mt-2">
-                                <button type="submit" class="btn btn-success">Add to Cart</button>
-                            </div>
-                        </form>
+                        <div class="card-body">
+                            <a href="{% url 'book_info' book.id %}">
+                                <div class="book-name-height">
+                                    <h6 class="card-title text-dark">{{ book.name }}</h6>
+                                </div>
+                            </a>
+                            <h5 class="card-text">€{{ book.price }}</h5>
+                            <!--Add to Cart submit button-->
+                            <form action="{% url 'add_book_to_cart' book.id %}" method="POST" class="py-2">
+                                {% csrf_token %}
+                                <div class="input-group">
+                                    <input type="number" name="quantity" min="1" max="999" placeholder="Quantity" class="form-control">
+                                </div>
+                                <div class="input-group-prepend justify-content-center mt-2">
+                                    <button type="submit" class="btn btn-success">Add to Cart</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <h6 class="text-center mt-5">Sorry there are no books relating to that search!</h6>
+    {% endif %}
     <!--Pagination-->
     <div class="justify-content-center" id="pagination-content">
         <p class="text-center">
