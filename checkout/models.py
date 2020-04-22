@@ -16,7 +16,7 @@ class Order(models.Model):
     country = models.CharField(max_length=40, blank=False)
     town_or_city = models.CharField(max_length=40, blank=False)
     street_address1 = models.CharField(max_length=50, blank=False)
-    street_address2 = models.CharField(max_length=50, blank=False)
+    street_address2 = models.CharField(max_length=50, blank=True)
     county = models.CharField(max_length=40, blank=False)
     postcode = models.CharField(max_length=20, blank=True)
     date = models.DateField()
