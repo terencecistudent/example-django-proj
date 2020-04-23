@@ -21,6 +21,10 @@
 <!--If cart has items-->
 {% else %}
     <div class="text-center">
+        <p>Customer Notice!</p>
+        <p>To remove an item from the cart, change quantity to 0.</p>
+    </div>
+    <div class="text-center">
         <a href="{% url 'books' %}" type="button" class="btn btn-warning text-center my-2">
             Back to Books
             <i class="fas fa-book"></i>
@@ -64,6 +68,9 @@
                                     </button>
                                 </div>
                             </form>
+                        </td>
+                        <td colspan="2">
+                            <a href="{% url 'remove_item' item.id %}" type="button" class="btn btn-danger">Remove</a>
                         </td>
                     </tr>
                 {% endfor %}

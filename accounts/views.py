@@ -53,7 +53,7 @@ def login(request):
     Log in page for users
     """
     if request.user.is_authenticated:
-        return redirect(reverse("index"))
+        return redirect(reverse("books"))
 
     if request.method == "POST":
         login_form = LoginForm(request.POST)

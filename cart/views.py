@@ -38,3 +38,14 @@ def edit_book_quantity(request, id):
 
     request.session["cart"] = cart
     return redirect(reverse("view_cart"))
+
+
+def remove_item(request, id):
+    """
+    Remove a book from the cart.
+    """
+    cart = request.session.get("cart", {})
+    cart.pop(id)
+    request.session["cart"] = cart
+    messages.success(request, "Item removed from cart")
+    return redirect(reverse("view_cart"))
