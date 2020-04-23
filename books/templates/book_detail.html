@@ -38,8 +38,9 @@
                     <!--Add to Cart submit button-->
                     <form action="{% url 'add_book_to_cart' book.id %}" method="POST" class="py-2">
                         {% csrf_token %}
-                        <div class="input-group">
-                            <input type="number" name="quantity" min="1" max="999" placeholder="Quantity" class="form-control">
+                        <p class="text-center">Quantity:</p>
+                        <div class="input-group justify-content-center">
+                            <input type="number" name="quantity" min="1" max="999" placeholder="Quantity" class="form-control center-align-book-sm" value="1" style="max-width: 40%;">
                         </div>
                         <div class="input-group-prepend justify-content-center mt-2">
                             <button type="submit" class="btn btn-success">Add to Cart</button>
