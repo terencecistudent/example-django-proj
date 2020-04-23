@@ -65,7 +65,7 @@ def login(request):
             if user:
                 auth.login(user=user, request=request)
                 messages.success(request, "You are now signed in!")
-                return redirect(reverse("index"))
+                return redirect(reverse("books"))
             else:
                 login_form.add_error(None, "Incorrect username or password")
 

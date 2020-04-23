@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, reverse
+from django.contrib import messages
+from books.models import Book
 
 
 def view_cart(request):

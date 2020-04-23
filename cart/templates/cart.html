@@ -7,10 +7,6 @@
 <!--Page title for user navigation-->
 <div class="text-center">
     <h2 class="my-3">Cart</h2>
-    <a href="{% url 'books' %}" type="button" class="btn btn-warning text-center my-2">
-        Back to Books
-        <i class="fas fa-book"></i>
-    </a>
 </div>
 <!--Section containing item(s) in the cart-->
 <!--If cart is empty-->
@@ -24,6 +20,12 @@
     </div>
 <!--If cart has items-->
 {% else %}
+    <div class="text-center">
+        <a href="{% url 'books' %}" type="button" class="btn btn-warning text-center my-2">
+            Back to Books
+            <i class="fas fa-book"></i>
+        </a>
+    </div>
     <div class="center-align-book-sm">
         <table class="table table-borderless table-responsive-sm text-center" style="width: 90%;">
             <thead>
@@ -52,8 +54,8 @@
                             <form action="{% url 'edit_book_quantity' item.id %}" method="POST">
                                 {% csrf_token %}
                                 <div class="form-group">
-                                    <div class="input-group">
-                                        <input type="number" name="quantity" id="change-quantity" min="0" max="999" class="form-control">
+                                    <div class="input-group text-center">
+                                        <input type="number" name="quantity" id="change-quantity" min="0" max="999" class="form-control center-align-book-sm" value="{{ item.quantity }}">
                                     </div>
                                 </div>
                                 <div class="text-center">
