@@ -94,4 +94,4 @@ def user_profile(request):
                             username=request.user.username)
     orders = Order.objects.filter(user=request.user).order_by('-date')
     return render(request, "user_profile.html",
-                    {"profile": user, "orders": orders})
+                  {"profile": user, "orders": orders})

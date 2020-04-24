@@ -40,7 +40,9 @@ class RegisterForm(UserCreationForm):
         username = self.cleaned_data.get("username")
 
         if User.objects.filter(email=email).exclude(username=username):
-            raise forms.ValidationError(u"Please enter a unique email address.")
+            raise forms.ValidationError(
+                u"Please enter a unique email address."
+            )
         return email
 
     def check_password2(self):

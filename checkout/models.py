@@ -13,10 +13,12 @@ class Order(models.Model):
         User, on_delete=models.CASCADE, null=True)
     first_name = models.CharField(max_length=40, blank=False)
     last_name = models.CharField(max_length=40, blank=False)
-    phone_regex = RegexValidator(regex=r'^\+?1?\d{9,15}$',
-        message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
+    phone_regex = RegexValidator(
+        regex=r'^\+?1?\d{9,15}$',
+        message="Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed."
+    )
     phone_number = models.CharField(validators=[phone_regex],
-        max_length=15, blank=True)
+                                    max_length=15, blank=True)
     country = models.CharField(max_length=40, blank=False)
     town_or_city = models.CharField(max_length=40, blank=False)
     street_address1 = models.CharField(max_length=50, blank=False)
