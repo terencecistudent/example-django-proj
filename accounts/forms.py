@@ -35,24 +35,30 @@ class RegisterForm(UserCreationForm):
             "password2",
         ]
 
-    def check_email(self):
+    def clean_email(self):
+        """
+        If email is already registered,
+        enter another email
+        """
         email = self.cleaned_data.get("email")
         username = self.cleaned_data.get("username")
 
         if User.objects.filter(email=email).exclude(username=username):
             raise forms.ValidationError(
-                u"Please enter a unique email address."
+                u"Email address already exists!"
             )
         return email
 
-    def check_password2(self):
+    def clean_password2(self):
+        """
+        if not password or password2 raise error and
+        if passwords don't match then raise error
+        """
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
-        # if not password or password2 raise error
         if not password1 or not password2:
-            raise forms.ValidationError("Please confirm you password.")
+            raise ValidationError("Please confirm your password.")
 
-        # if passwords don't match then raise error
         if password1 != password2:
-            raise forms.ValidationError("Passwords do not match!")
+            raise ValidationError("Passwords do not match!")
         return password2
