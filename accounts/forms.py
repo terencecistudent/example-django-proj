@@ -16,7 +16,6 @@ class RegisterForm(UserCreationForm):
     """
     Form used for new user registration
     """
-    # format for password creation
     password1 = forms.CharField(
         label="Password",
         widget=forms.PasswordInput
@@ -25,7 +24,8 @@ class RegisterForm(UserCreationForm):
         label="Confirm Password",
         widget=forms.PasswordInput
     )
-
+    
+    email = forms.CharField(required=True)
     class Meta:
         model = User
         fields = [
