@@ -24,14 +24,15 @@ history.
 I have started this project by creating mockups and wireframes to help give me an idea of how I was going to 
 design the website across all platforms considered, laptops, iPads and mobile devices.  Below is attached my
 mocks and wireframes:
-
+#
 
 ## Wireframes 
 For the wireframes, I have used a software called Bootstrap Studio which focuses on building wireframes where the
-Bootstrap framework is used.
+Bootstrap framework is used.  The wireframes have been created to test devices XS, SM, MD, LG and XL as shown in
+document below:
 
-[Wireframes can be found here]()
-
+[Wireframes can be found here](https://github.com/terencecistudent/teds-books-online/blob/master/wireframes/Mockups2.pdf)
+#
 
 ## UX
 ### User Stories
@@ -131,9 +132,10 @@ There are a few features included for this application to work:
 - **Dropdowns**: Used for users to search books based on price: low-high/high-low, published date: newest/oldest
     and genre: Comics, Food, Horror, Mystery and Sport.
 - **Add to Cart**: Allows users to add a book to the cart.
+- **Edit Quantity**: Allows users to edit the quantity of a book in the cart.
+- **Remove from Cart**: Button used to remove a book from the cart.
 - **Payment Form**: Allows users to purchase a book by filling out the payment form in checkout and clicking
     the Submit Payment button.
-- **Edit Quantity**: Allows users to edit the quantity of a book in the cart.
 - **Register Form**: Allows users to create an account.
 - **Sign In**: Allows users to sign into their.
 - **Django Messages**: Alert message shown when user registers, signs in/out of their account, also shown
@@ -418,6 +420,9 @@ The tests carried out involve:
 - Forum
 - Social Media Links
 - Password Reset
+    - Demo for Password Reset:
+
+    ![Password Reset](testing/media/ResetPassword.gif)
 
 [Manual Tests](https://github.com/terencecistudent/teds-books-online/blob/master/testing/Manual%20Tests.pdf)
 
