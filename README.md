@@ -384,7 +384,7 @@ Here is the link for instructions: https://www.gitpod.io/
 - I have carried out Django tests across a few apps in forms.py.
 
 ### Jasmine Tests:
-I have conducted tests using Jasmine Testing Framework [click here](https://github.com/terencecistudent/Data-Centric-Dev-Project-TL/tree/master/testing), 
+I have conducted tests using Jasmine Testing Framework [click here](https://github.com/terencecistudent/teds-books-online/tree/master/testing), 
 such tests involve:
 
 1. Selecting the price either asc or desc which returns HTML text with that price selected:
