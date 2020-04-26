@@ -422,7 +422,7 @@ The tests carried out involve:
 - Password Reset
     - Demo for Password Reset:
 
-    ![Password Reset](testing/media/ResetPassword.gif)
+    ![Password Reset](testing/demo/ResetPassword.gif)
 
 [Manual Tests](https://github.com/terencecistudent/teds-books-online/blob/master/testing/Manual%20Tests.pdf)
 
