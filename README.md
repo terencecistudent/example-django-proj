@@ -32,6 +32,10 @@ Bootstrap framework is used.  The wireframes have been created to test devices X
 document below:
 
 [Wireframes can be found here](https://github.com/terencecistudent/teds-books-online/blob/master/wireframes/Mockups2.pdf)
+
+I have also created a document going through The Five Planes:
+
+[The Five Planes](https://github.com/terencecistudent/teds-books-online/blob/master/wireframes/The%20Five%20Planes.pdf)
 #
 
 ## UX
