@@ -3,14 +3,17 @@
 # Ted's Books Online - Code Institute
 
 ## Description
-This is an ecommerce website that I created.  Users are able to register an account and sign in or sign out
+This is an ecommerce website that I created which sells books.  Users are able to register an account and sign in or sign out
 out their account.  Users are able to view a variety of books and can use the search box or dropdowns to filter
 the search.  Users can view a full book's detail by clicking on the image or book name.  This will direct them
-to a page showing the book's image, name, genre, published date, description and price.  Also users can add that
+to a page showing the book's image, name, genre, published date, description and price.  Also, users can add that
 book to the cart from the main books page or the book detail page.  Users can then fill in the quantity of a book
-or books then add to cart.  In the cart, the order will show and the user can change the quantity of a book.
+or books then add to cart.  In the cart, the books added to cart will show and the user can change the quantity of a book.
 The user can click the checkout button bringing them to the checkout page.  It will show the same order or orders
-made by the user however the quantity cannot be edited, this will have to be done in the cart.
+made by the user however the quantity cannot be edited, this will have to be done in the cart.  Users can remove a book
+from the cart by pressing the Remove button.
+
+**For payments to be successful, use Stripe's test card number 4242424242424242**
 
 Users with an account have access to the forum page.  On this page users can discuss book by creating a new post or
 adding a comment within a post.
@@ -24,7 +27,10 @@ mocks and wireframes:
 
 
 ## Wireframes 
-wireframes need to go here 
+For the wireframes, I have used a software called Bootstrap Studio which focuses on building wireframes where the
+Bootstrap framework is used.
+
+[Wireframes can be found here]()
 
 
 ## UX
