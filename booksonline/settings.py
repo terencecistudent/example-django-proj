@@ -182,10 +182,6 @@ STRIPE_SECRET = os.getenv("STRIPE_SECRET")
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
-MESSAGE_TAGS = {
-    messages.ERROR: 'danger',
-}
-
 # Email Messages
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
