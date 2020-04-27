@@ -17,6 +17,9 @@ def add_book_to_cart(request, id):
     quantity of it to the cart.
     """
     quantity = int(request.POST.get("quantity"))
+    if quantity < 1:
+        quantity = 1
+        
     cart = request.session.get("cart", {})
     cart[id] = cart.get(id, quantity)
     request.session["cart"] = cart
