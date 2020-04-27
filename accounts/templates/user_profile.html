@@ -52,7 +52,7 @@
                 <th scope="col" colspan="2">Total Price</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="table-body-style">
             {% for order in orders.all %}
                 {% for line in order.orderline.all %}
                     <tr class="table-row-style">
