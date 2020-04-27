@@ -63,10 +63,14 @@
 <!--Payment section for users to purchase their order-->
 <form action="{% url 'checkout' %}" method="POST" role="form" id="customer-payment-form" class="payment-form-style mb-5">
     <legend class="text-center py-2">Payment Details</legend>
-    <!--Error messages will show-->
-    <div id="card-errors">
-        <div class="alert-success" id="stripe-error-message"></div>
-    </div>
+    {% if messages %}
+         {% for message in messages %}
+            <!--Error messages will show-->
+            <div id="card-errors">
+                <div class="alert-{{ message.tags }}" id="stripe-error-message"></div>
+            </div>
+        {% endfor %}
+    {% endif %}
     <div class="row">
         <div class="col-12">
             <div class="row">
